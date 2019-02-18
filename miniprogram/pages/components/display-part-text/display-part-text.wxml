@@ -1,0 +1,4 @@
+<view class="ctrl-show-text {{isShowAllText ? 'active' : ''}}" style='{{initTextClass}}'>
+  <slot></slot>
+  <view class="show-all-cont {{btnShowPosition}}" catchtap="showAllText" style='{{showAllClass}}'>{{isShowAllText ? hideBtnText : showBtnText}}</view>
+</view>

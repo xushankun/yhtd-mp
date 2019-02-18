@@ -1,0 +1,82 @@
+/* miniprogram/pages/index/release/release.wxss */
+
+page {
+    background: #f1f5f9;
+}
+
+.feedback-block {
+    padding: 0 28rpx;
+}
+
+.feedback-textarea-block .feedback-textarea {
+    width: 100%;
+    height: 300rpx;
+    color: #333;
+    font-size: 28rpx;
+    line-height: 48rpx;
+    padding: 30rpx 0;
+}
+
+.feedback-textarea-block .word-nums {
+    height: 84rpx;
+    line-height: 84rpx;
+    align-items: center;
+    color: #9f9f9f;
+    text-align: right;
+}
+
+.submit-info {
+    background: #2282e5;
+    color: #fff;
+    position: fixed;
+    width: calc(100% - 60rpx);
+    bottom: 100rpx;
+    left: 30rpx;
+}
+
+.upload-block {
+    padding: 0 28rpx;
+}
+
+.upload-block .upload-title {
+    padding: 35rpx 0;
+    display: flex;
+    align-items: baseline;
+    color: #404040;
+    font-size: 32rpx;
+}
+
+.upload-tips {
+    font-size: 24rpx;
+    margin-left: 4rpx;
+}
+
+.upload-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.upload-list .upload-img {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 20rpx 20rpx 20rpx 0;
+}
+
+.upload-list .upload-btn {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 20rpx 20rpx 20rpx 0;
+    background: #ebebeb;
+}
+
+.upload-list .upload-btn .plus-icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.justify-align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

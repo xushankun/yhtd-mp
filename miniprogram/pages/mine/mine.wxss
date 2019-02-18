@@ -1,0 +1,91 @@
+/* miniprogram/pages/mine/mine.wxss */
+
+/* head */
+
+.head-block {
+    height: 400rpx;
+    background: #eee url('https://7368-shankun-ece48e-1254163049.tcb.qcloud.la/static/images/bg.jpg?sign=aeac0d5344271f06817141f93da20ce8&t=1550116778') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.userInfo-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0);
+}
+
+.userInfo-btn::after {
+    border: 0;
+}
+
+.userInfo-btn .avatar {
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.userInfo-btn .username {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #000;
+}
+
+.userInfo-btn .username.active {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* action */
+
+.action-list {
+    /* margin-top: 30rpx; */
+}
+
+.action-list  .action-item {
+    width: 100%;
+    padding: 0 0 0 30rpx;
+    box-sizing: border-box;
+}
+
+.action-item {
+    width: 100%;
+    padding: 0 0 0 30rpx;
+    box-sizing: border-box;
+}
+
+.action-item .item-content {
+    height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-item .item-content .item-title {
+    color: #333;
+}
+
+.action-item .item-content .iconfont {
+    margin-right: 30rpx;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.contact-btn {
+    background: #fff
+}
+
+.about-yh {
+    padding: 30rpx;
+    color: #666;
+    line-height: 48rpx;
+    text-indent: 2em;
+}

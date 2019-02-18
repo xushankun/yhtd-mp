@@ -1,0 +1,30 @@
+/* 控制显示文字 */
+
+.ctrl-show-text {
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ctrl-show-text view {
+  line-height: inherit;
+}
+
+.show-all-cont {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #409eff;
+}
+
+/* 右下角 */
+.show-all-cont.rightBottom {
+  display: inline-block;
+  width: auto;
+  position: absolute;
+  padding-left: 20rpx;
+}

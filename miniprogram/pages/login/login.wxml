@@ -1,0 +1,4 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view>
+    <button open-type='getUserInfo' bindgetuserinfo='getUserInfoHandler' class="userInfo-btn">微信快捷登录</button>
+</view>

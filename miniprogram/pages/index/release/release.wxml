@@ -1,0 +1,24 @@
+<!--miniprogram/pages/index/release/release.wxml-->
+<view class="release">
+    <form bindsubmit="onSubmit" bindreset="formReset">
+        <view class="feedback-block bgff">
+            <view class=" feedback-textarea-block">
+                <textarea class="feedback-textarea" maxlength="{{maxlength}}" name="Message" placeholder='请提出您的宝贵建议，我们将不断优化您的体验' placeholder-style='color:#9f9f9f; line-height: 48rpx;' bindinput="bindTextarea"></textarea>
+                <view class="word-nums">{{currLength}}/{{maxlength}}</view>
+            </view>
+        </view>
+        <view class="upload-block mt10 bgff">
+            <view class="upload-title">上传图片
+                <view class="upload-tips">（长按图片删除）</view>
+            </view>
+            <view class="upload-list">
+                <image class="upload-img" mode="aspectFill" wx:for="{{imgList}}" wx:key="{{index}}" src="{{item}}" data-index="{{index}}" data-curr-url="{{item}}" catchtap="previewImage" catchlongpress="longpressImage"></image>
+                <view class="upload-btn justify-align-center" catchtap="chooseImage">
+                    <image class="plus-icon" mode="aspectFill" src="../../../images/release/plus-icon.png"></image>
+                </view>
+            </view>
+        </view>
+        <!-- 提交按钮 -->
+        <button hover-class='hover-btn' disabled="{{disabled}}" class="main-submit-btn submit-info" formType="submit">提交</button>
+    </form>
+</view>

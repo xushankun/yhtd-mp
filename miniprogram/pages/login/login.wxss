@@ -1,0 +1,8 @@
+/* miniprogram/pages/login/login.wxss */
+.userInfo-btn {
+    color: #fff;
+    font-size:32rpx;
+    background: #00b26a;
+    width: calc(100% - 60rpx);
+    margin: 200rpx auto;
+}

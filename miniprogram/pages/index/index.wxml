@@ -1,0 +1,35 @@
+<!--miniprogram/pages/home.wxml-->
+<view>
+    <view class="list-block">
+        <view class='item-block bottom-shadow bgff' wx:for="{{listData}}" wx:key="{{index}}">
+            <view class='item-header plr30 border-bottom'>
+                <view class="item-user">
+                    <image class='userImg mr10' src='{{item.avatarUrl || "../../images/tx.png"}}'></image> {{item.nickName || '路人甲'}}
+                </view>
+                <view class="item-time">{{item.newTime}}</view>
+            </view>
+            <view class='item-text'>
+            <displayPartText lineNumber="2" textLineHeight="44" showBtnText="更多"> {{item.content}}</displayPartText>
+            
+           </view>
+            <view class='img-block plr30'>
+                <image class='img' lazy-load="{{true}}" mode="widthFix" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="{{_index}}" data-index="{{index}}" data-imgIndex="{{_index}}"  data-curr-url="{{_item}}"  src='{{_item || ""}}' catchtap="previewImage"></image>
+            </view>
+        </view>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="loading" hidden="{{!searchLoading}}">疯狂加载中...</view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">--哥是有底线的--</view>
+
+    <!-- <navigator url="release/release" hover-class="other-navigator-hover">
+        <view class="release-btn {{!isTop ? 'active' : ''}}">
+            <icon class="iconfont icon-fabuxinxi"></icon>
+        </view>
+    </navigator> -->
+    <!-- 返回顶部 -->
+    <view class="back-top" wx:if="{{isTop}}" catchtap="backTop">
+        <icon class="iconfont icon-backtop"></icon>
+    </view>
+
+</view>

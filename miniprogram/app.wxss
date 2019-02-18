@@ -1,0 +1,170 @@
+/**app.wxss**/
+
+/* 
+  导入iconfont
+  使用方法  <icon class="iconfont icon-xxx"></icon> 
+*/
+@import "/style/iconfont/iconfont.wxss";
+
+/* 下面为全局公共样式 */
+
+page {
+  /* background: #f1f1f1; */
+}
+
+view {
+  font-size: 28rpx;
+}
+
+.bgff {
+  background: #fff;
+}
+
+.ml10 {
+  margin-left: 10rpx;
+}
+
+.mr10 {
+  margin-right: 10rpx;
+}
+
+.mt10 {
+  margin-top: 10rpx;
+}
+
+.mb10 {
+  margin-bottom: 10rpx;
+}
+
+.ml20 {
+  margin-left: 20rpx;
+}
+
+.mr20 {
+  margin-right: 20rpx;
+}
+
+.mt20 {
+  margin-top: 20rpx;
+}
+
+.mb20 {
+  margin-bottom: 20rpx;
+}
+
+.pl20 {
+  padding-left: 20rpx;
+}
+
+.plr30 {
+  padding: 0 30rpx;
+}
+
+.pr {
+  position: relative;
+}
+
+.pa {
+  position: absolute;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.w100 {
+  width: 100%;
+}
+
+/* 字体主题色及布局 */
+
+.full-screen-view {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/*清除浮动代码*/
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/* 自定义border */
+
+.border-top {
+  border-top: 1rpx solid #e6e6e6;
+}
+
+.border-bottom {
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.bottom-shadow {
+  box-shadow: 2rpx 4rpx 14rpx rgba(0, 0, 0, 0.1);
+}
+
+/* button去border   【如需加border请单独设置  xxClass::after】 */
+
+button::after {
+  border: 0;
+}
+
+.hover-btn {
+  opacity: 0.6;
+}
+
+/* 单行text省略 */
+
+.text-omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* loading */
+ 
+.loading {
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #454545;
+}
+ 
+.loading.complete:before {
+  display: none;
+}
+ 
+.loading.complete {
+  color: #999;
+}

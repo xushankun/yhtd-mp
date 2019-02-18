@@ -1,0 +1,6 @@
+{
+"enablePullDownRefresh": true,
+"usingComponents": {
+    "displayPartText": "../components/display-part-text/display-part-text"
+}
+}
