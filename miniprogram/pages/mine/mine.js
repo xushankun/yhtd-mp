@@ -109,7 +109,7 @@ Page({
     showInfo () {
         wx.showModal({
             title: '开心每一天',
-            content: '内容来源于网络，侵权请联系作者',
+            content: '博客：https://shankun.top',
             showCancel: false
         })
     },

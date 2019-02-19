@@ -3,11 +3,13 @@
 /* head */
 
 .head-block {
-    height: 400rpx;
+    height: 480rpx;
     background: #eee url('https://7368-shankun-ece48e-1254163049.tcb.qcloud.la/static/images/bg.jpg?sign=aeac0d5344271f06817141f93da20ce8&t=1550116778') center center no-repeat;
     background-size: cover;
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
+    padding-top: 210rpx;
+    box-sizing: border-box;
 }
 
 .userInfo-btn {
@@ -80,7 +82,7 @@
 }
 
 .contact-btn {
-    background: #fff
+    background: #fff;
 }
 
 .about-yh {
