@@ -4,15 +4,27 @@
 
 .head-block {
     height: 480rpx;
-    background: #eee url('https://7368-shankun-ece48e-1254163049.tcb.qcloud.la/static/images/bg.jpg?sign=aeac0d5344271f06817141f93da20ce8&t=1550116778') center center no-repeat;
+    background: #eee url('https://7368-shankun-r-7ee811-1254163049.tcb.qcloud.la/images/bg/bg1.jpg?sign=e51b5b59b7ba682b1cc87f32be315066&t=1550556380') center center no-repeat;
     background-size: cover;
     /* display: flex;
     align-items: center; */
     padding-top: 210rpx;
     box-sizing: border-box;
+    position: relative;
+}
+
+.head-block::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .userInfo-btn {
+    z-index: 11;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,4 +102,50 @@
     color: #666;
     line-height: 48rpx;
     text-indent: 2em;
+}
+
+/* longpress */
+
+.input-form {
+
+}
+
+.input-form .manban-bg {
+    background: rgba(0,0,0,.4)
+}
+.input-cont {
+    width: 500rpx;
+    height: 300rpx;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 250rpx);
+    transform: translateY(-100rpx);
+    border-radius: 10rpx;
+}
+.form-cont {
+    width: 440rpx;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.form-cont input {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    background: #eee;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+}
+.form-cont button {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 32rpx;
 }

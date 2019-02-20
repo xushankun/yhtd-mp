@@ -14,7 +14,9 @@ Page({
         searchLoading: true,
         searchLoadingComplete: false,
 
-        isTop:false
+        isTop:false,
+
+        isRelease:false
 
     },
     onLoad: function(options) {
@@ -38,6 +40,7 @@ Page({
                 openid: res.result.openid
             })
             this.onQuery(false, true);
+            this.onServices();
         }).catch(err => {
             console.error('[云函数] [login] 调用失败', err)
         })
@@ -101,6 +104,20 @@ Page({
             })
             console.error('[数据库] [查询记录] 失败：', err)
         });
+    },
+    onServices(){
+        db.collection('services').get().then(res=>{
+            console.log(res)
+            if(res.data.length) {
+                this.setData({
+                    isRelease: res.data[0].isRelease
+                })
+            } else {
+                this.setData({
+                    isRelease: false
+                })
+            }
+        })
     },
     timeDiff (_date) {
         let currTime = new Date(); //开始时间

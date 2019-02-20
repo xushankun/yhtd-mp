@@ -5,7 +5,7 @@ const _ = db.command;
 Page({
     data: {
         currLength: 0,
-        maxlength: 200,
+        maxlength: 500,
 
         imgList: [],
         disabled: false,
@@ -14,7 +14,7 @@ Page({
         imgListed: [] // 已上传
     },
     onLoad: function (options) {
-
+        
     },
     onShow: function () {
         let _isLogin = wx.getStorageSync('isLogin')
@@ -28,7 +28,7 @@ Page({
                 wx.navigateTo({
                     url: '../../login/login',
                 })
-            }, 1500)
+            }, 1000)
         } else {
             this.getCount()
         }
@@ -81,6 +81,7 @@ Page({
                     _that.setData({
                         disabled: false
                     })
+                    app.prevPage().onGetOpenid();
                     setTimeout(() => {
                         wx.navigateBack({
                             delta: 1

@@ -22,11 +22,11 @@
     <view class="loading" hidden="{{!searchLoading}}">疯狂加载中...</view>
     <view class="loading complete" hidden="{{!searchLoadingComplete}}">--哥是有底线的--</view>
 
-    <!-- <navigator url="release/release" hover-class="other-navigator-hover">
+    <navigator url="release/release" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
         <view class="release-btn {{!isTop ? 'active' : ''}}">
             <icon class="iconfont icon-fabuxinxi"></icon>
         </view>
-    </navigator> -->
+    </navigator>
     <!-- 返回顶部 -->
     <view class="back-top" wx:if="{{isTop}}" catchtap="backTop">
         <icon class="iconfont icon-backtop"></icon>

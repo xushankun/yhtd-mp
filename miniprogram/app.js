@@ -21,5 +21,10 @@ App({
         }
 
         this.globalData = {}
+    },
+    // prevPage
+    prevPage: function () {
+        let pages = getCurrentPages(); //当前页面
+        return pages[pages.length - 2]; //上一页面
     }
 })

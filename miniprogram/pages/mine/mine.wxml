@@ -25,11 +25,23 @@
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view>
-        <button class="action-item contact-btn border-top" open-type="contact" session-from="weapp">
+        <button class="action-item contact-btn border-top" open-type="contact" session-from="weapp" catchlongpress="longpress">
             <view class="item-content">
                 <text class="item-title">联系作者</text>
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </button>
+    </view>
+    <!-- tip -->
+    <view class="input-form full-screen-view" wx:if="{{isShowForm}}">
+        <view class="full-screen-view manban-bg"></view>
+        <view class="input-cont">
+            <view class="form-cont">
+                <input placeholder="请输入反馈" value="{{actionKey}}" bindinput="bindActionKey"/>
+                <button class="mt20" type="primary"  bindtap="submitKey">
+                    提交
+                </button>
+            </view>
+        </view>
     </view>
 </view>

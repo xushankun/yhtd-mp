@@ -52,7 +52,6 @@ page {
 
 .img-block .img {
     width: calc((100% - 40rpx)/3);
-    /* height: 140rpx; */
     margin-right: 20rpx;
     margin-bottom: 20rpx;
 }

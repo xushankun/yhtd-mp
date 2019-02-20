@@ -101,7 +101,7 @@ Page({
             wx.navigateBack({
                 delta: 1
             })
-        },1500)
+        },800)
      
     }
 })

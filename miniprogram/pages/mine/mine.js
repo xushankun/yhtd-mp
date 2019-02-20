@@ -5,17 +5,19 @@ const _ = db.command
 Page({
     data: {
         isLogin: false,
-        userInfo: null
+        userInfo: null,
+        isShowForm: false,
+        actionKey: ''
     },
-    onLoad: function (options) {
-       
+    onLoad: function(options) {
+
     },
-    onShow: function () {
+    onShow: function() {
         if (!wx.getStorageSync('isLogin')) {
             this.onGetOpenid();
         } else {
             this.setData({
-                isLogin:true,
+                isLogin: true,
                 userInfo: wx.getStorageSync('userInfo')
             })
         }
@@ -27,7 +29,7 @@ Page({
             name: 'login',
             data: {}
         }).then(res => {
-            this.onQueryUser(res.result.openid);  // 去登录
+            this.onQueryUser(res.result.openid); // 去登录
         }).catch(err => {
             console.error('[云函数] [login] 调用失败', err)
         })
@@ -50,7 +52,7 @@ Page({
     },
 
     // 获取微信用户信息授权
-    getUserInfoHandler: function (e) {
+    getUserInfoHandler: function(e) {
         let _that = this;
         if (this.data.userInfo) {
             return;
@@ -106,18 +108,34 @@ Page({
         })
     },
     // 关于
-    showInfo () {
+    showInfo() {
         wx.showModal({
             title: '开心每一天',
             content: '博客：https://shankun.top',
             showCancel: false
         })
     },
-    showTips() {
-        this.showInfo();
-        // wx.showToast({
-        //     title: '该功能开发中--！',
-        //     icon:"none"
-        // })
+    longpress() {
+        this.setData({
+            isShowForm: true
+        })
+    },
+    bindActionKey(e) {
+        this.setData({
+            actionKey: e.detail.value
+        })
+    },
+    submitKey() {
+        let _that = this;
+        this.setData({
+            isShowForm: false
+        },()=>{
+            if (_that.data.actionKey === '123456'){
+                let _url = '../index/re' +'lease/release';
+                wx.navigateTo({
+                    url: _url,
+                })
+            }
+        })
     }
 })
