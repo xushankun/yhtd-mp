@@ -7,11 +7,7 @@ Page({
         isLogin: false,
         userInfo: null,
         isShowForm: false,
-        actionKey: '',
-
-        isRelease: false,
-        // 权限默认普通用户0，管理员1 ，拉黑用户为2
-        auth: 0
+        actionKey: ''
     },
     onLoad: function(options) {
 
@@ -141,20 +137,6 @@ Page({
                 let _url = '../index/re' +'lease/release';
                 wx.navigateTo({
                     url: _url,
-                })
-            }
-        })
-    },
-    // 是否授权该功能
-    onServices() {
-        db.collection('services').get().then(res => {
-            if (res.data.length) {
-                this.setData({
-                    isRelease: res.data[0].isRelease
-                })
-            } else {
-                this.setData({
-                    isRelease: false
                 })
             }
         })

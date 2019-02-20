@@ -25,7 +25,7 @@
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view>
-        <view class="action-item border-top" catchtap="goDefriend" wx:if="{{isRelease && userInfo.auth === 1}}">
+        <view class="action-item border-top" catchtap="goDefriend" wx:if="{{userInfo.auth === 1}}">
             <view class="item-content">
                 <text class="item-title">拉黑名单</text>
                 <icon class="iconfont icon-jinruyou"></icon>
