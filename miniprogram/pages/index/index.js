@@ -15,18 +15,26 @@ Page({
         searchLoadingComplete: false,
 
         isTop:false,
-
-        isRelease:false
-
+        isRelease:false,
+        // 权限默认普通用户0，管理员1 ，拉黑用户为2
+        auth:0,
+        openid:''
     },
     onLoad: function(options) {
 
     },
     onReady: function() {
-      this.onGetOpenid();
+        this.onGetOpenid();
+    },
+    onUnload(){
+
     },
     onShow: function() {
-  
+        let _isLogin = wx.getStorageSync('isLogin');
+        let _userInfo = wx.getStorageSync('userInfo');
+        if (_isLogin) {
+            this.onQueryUser(_userInfo._openid);
+        }
     },
     // 获取openid 我们可以认为是登录
     onGetOpenid() {
@@ -93,6 +101,7 @@ Page({
 
             if (isRefresh) {
                 setTimeout(() => {
+                    wx.hideLoading()
                     wx.stopPullDownRefresh();
                 }, 500)
             }
@@ -107,7 +116,6 @@ Page({
     },
     onServices(){
         db.collection('services').get().then(res=>{
-            console.log(res)
             if(res.data.length) {
                 this.setData({
                     isRelease: res.data[0].isRelease
@@ -138,18 +146,18 @@ Page({
         // console.log(" 相差 " + days + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒")
         let _time = '';
         if (days === 0) {
-            _time = hours + "小时 " + minutes + "分钟 "
+            _time = hours + "小时"
             if (hours === 0) {
                 if (minutes === 0){
-                    _time = seconds + "秒 "
+                    _time = seconds + "秒钟"
                 } else {
-                    _time = minutes + "分钟 "
+                    _time = minutes + "分钟"
                 }
             }
         } else if (days === -1) {
             _time = Math.abs(seconds - 0) + " 秒"
         } else {
-            _time = days + "天 "
+            _time = days + "天"
         }
 
         return _time
@@ -163,6 +171,143 @@ Page({
             current: _currUrl,
             urls: _urls
         })
+    },
+    onQueryUser(openid) {
+        let _that = this;
+        db.collection('users').where({
+            _openid: openid
+        }).get().then(res => {
+            if (res.data.length > 0) {
+                wx.setStorageSync('userInfo', res.data[0]);
+                _that.setData({
+                    auth: res.data[0].auth,
+                    openid: res.data[0]._openid
+                })
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+    },
+    actionBtn(e) {
+        let _that = this;
+        let _itemList = [];
+        let _isLogin = wx.getStorageSync('isLogin');
+        if (this.data.auth === 1) {
+            _itemList = ['删除', '拉黑该用户'];
+        } else {
+            _itemList = ['删除'];
+        }
+        wx.showActionSheet({
+            itemList: _itemList,
+            success(res) {
+                if (!_isLogin) {
+                    wx.showToast({
+                        title: '您还未登录,请先登录~',
+                        icon: 'none'
+                    })
+
+                    setTimeout(() => {
+                        wx.navigateTo({
+                            url: '../login/login',
+                        })
+                    }, 1000)
+                    return;
+                }
+                if (res.tapIndex === 0) {
+                    wx.showModal({
+                        title: '警告',
+                        content: '删除后不可恢复，继续吗？',
+                        success(res) {
+                            if (res.confirm) {
+                                _that.onDelete(e);
+                            }
+                        }
+                    })
+                } else if (res.tapIndex === 1) {
+                    wx.showModal({
+                        title: '警告',
+                        content: '拉黑该用户后，用户将被禁止发帖',
+                        success(res) {
+                            if (res.confirm) {
+                                _that.onDefriend(e);
+                            }
+                        }
+                    })
+                }
+            },
+            fail(res) {
+                console.log(res.errMsg)
+            }
+        })
+    },
+    // 删除
+    onDelete(e){
+        let _imgid = e.currentTarget.dataset.imgid;
+        db.collection(_dbc).doc(e.currentTarget.dataset.id).remove().then(res=>{
+            // 存在图片则删除图片
+            if (_imgid.length) {
+                wx.cloud.deleteFile({
+                    fileList: _imgid
+                }).then(res => {
+                    console.log(res.fileList)
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+            wx.showToast({
+                title: '操作成功'
+            })
+            this.refresh();
+        }).catch(err=>{
+            console.log(err)
+        })
+    },
+    // 拉黑
+    onDefriend(e){
+        let _openid = e.currentTarget.dataset.openid
+        db.collection('users').where({
+            _openid: _openid
+        }).get().then(res => {
+            if (res.data.length > 0) {
+                let _duserInfo = res.data[0];
+                db.collection('users').doc(res.data[0]._id).update({
+                    data: {
+                        auth: 0
+                    },
+                }).then(res => {
+                    console.log(res)
+                    db.collection('defriend').where({
+                        _openid: _openid
+                    }).get().then(res=>{
+                        if(res.data.length > 0) {
+                            wx.showToast({
+                                title: '该用户已被拉黑',
+                                icon:"none"
+                            })
+                        } else {
+                            db.collection('defriend').add({
+                                data: {
+                                    avatarUrl: _duserInfo.avatarUrl,
+                                    nickName: _duserInfo.nickName,
+                                    defriendOpendid: _openid
+                                }
+                            }).then(res => {
+                                console.log(res)
+                                wx.showToast({
+                                    title: '操作成功'
+                                })
+                            })
+                        }
+                    })
+
+                })
+            } else {
+                console.log('用户不存在')
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+      
     },
     backTop () {
         wx.pageScrollTo({
@@ -180,15 +325,14 @@ Page({
             });
         }
     },
-    onPullDownRefresh() {
-        wx.showToast({
-            title: '加载中...',
-            icon: 'loading'
+    refresh(){
+        wx.showLoading({
+            title: '加载中',
         })
         this.onGetOpenid();
-        setTimeout(()=>{
-            wx.stopPullDownRefresh();
-        },1500)
+    },
+    onPullDownRefresh() {
+        this.refresh();
     } ,
     onReachBottom(){
         this.setData({

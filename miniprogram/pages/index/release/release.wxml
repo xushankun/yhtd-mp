@@ -3,7 +3,7 @@
     <form bindsubmit="onSubmit" bindreset="formReset">
         <view class="feedback-block bgff">
             <view class=" feedback-textarea-block">
-                <textarea class="feedback-textarea" maxlength="{{maxlength}}" name="Message" placeholder='请提出您的宝贵建议，我们将不断优化您的体验' placeholder-style='color:#9f9f9f; line-height: 48rpx;' bindinput="bindTextarea"></textarea>
+                <textarea class="feedback-textarea" maxlength="{{maxlength}}" name="Message" placeholder='说出你觉得很硬核的段子' placeholder-style='color:#9f9f9f; line-height: 48rpx;' bindinput="bindTextarea"></textarea>
                 <view class="word-nums">{{currLength}}/{{maxlength}}</view>
             </view>
         </view>

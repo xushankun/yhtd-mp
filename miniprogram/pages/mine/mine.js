@@ -70,6 +70,8 @@ Page({
     // 新增用户
     onAddUser(obj) {
         let _that = this;
+        obj.auth = 0;           // 权限默认普通用户0，管理员1 ，拉黑用户为2
+        obj.createTime = db.serverDate()
         db.collection('users').add({
             data: obj
         }).then(res => {

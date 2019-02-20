@@ -30,6 +30,20 @@ Page({
                 })
             }, 1000)
         } else {
+            if(wx.getStorageSync('userInfo').auth === 2){
+                wx.showModal({
+                    title: '您已被禁止发帖',
+                    content: '道路千万条，发帖不规范，已被封禁，请到-我的-联系作者进行解封',
+                    showCancel:false,
+                    success(res) {
+                        console.log('用户点击确定');
+                        wx.switchTab({
+                            url: '../../mine/mine',
+                        })
+                    }
+                })
+                return;
+            }
             this.getCount()
         }
     },

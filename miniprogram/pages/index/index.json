@@ -1,6 +1,8 @@
 {
-"enablePullDownRefresh": true,
-"usingComponents": {
-    "displayPartText": "../components/display-part-text/display-part-text"
-}
+    "navigationBarTitleText": "硬核天地",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "displayPartText": "../components/display-part-text/display-part-text"
+    }
 }
