@@ -29,7 +29,6 @@ Page({
             name: 'login',
             data: {}
         }).then(res => {
-            this.onServices();
             this.onQueryUser(res.result.openid); // 去登录
         }).catch(err => {
             console.error('[云函数] [login] 调用失败', err)
