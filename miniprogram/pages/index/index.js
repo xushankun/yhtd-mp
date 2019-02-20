@@ -272,7 +272,7 @@ Page({
                 let _duserInfo = res.data[0];
                 db.collection('users').doc(res.data[0]._id).update({
                     data: {
-                        auth: 0
+                        auth: 2
                     },
                 }).then(res => {
                     console.log(res)
@@ -289,6 +289,7 @@ Page({
                                 data: {
                                     avatarUrl: _duserInfo.avatarUrl,
                                     nickName: _duserInfo.nickName,
+                                    createTime: db.serverDate(),
                                     defriendOpendid: _openid
                                 }
                             }).then(res => {

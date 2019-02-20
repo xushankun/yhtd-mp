@@ -7,7 +7,11 @@ Page({
         isLogin: false,
         userInfo: null,
         isShowForm: false,
-        actionKey: ''
+        actionKey: '',
+
+        isRelease: false,
+        // 权限默认普通用户0，管理员1 ，拉黑用户为2
+        auth: 0
     },
     onLoad: function(options) {
 
@@ -29,6 +33,7 @@ Page({
             name: 'login',
             data: {}
         }).then(res => {
+            this.onServices();
             this.onQueryUser(res.result.openid); // 去登录
         }).catch(err => {
             console.error('[云函数] [login] 调用失败', err)
@@ -138,6 +143,25 @@ Page({
                     url: _url,
                 })
             }
+        })
+    },
+    // 是否授权该功能
+    onServices() {
+        db.collection('services').get().then(res => {
+            if (res.data.length) {
+                this.setData({
+                    isRelease: res.data[0].isRelease
+                })
+            } else {
+                this.setData({
+                    isRelease: false
+                })
+            }
+        })
+    },
+    goDefriend(){
+        wx.navigateTo({
+            url: 'defriendList/defriendList',
         })
     }
 })

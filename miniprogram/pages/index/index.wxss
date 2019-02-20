@@ -53,10 +53,10 @@
     width: 100%;
     line-height: 50rpx;
     text-align: left;
-    word-break: break-all;
+    /* word-break: break-all;
     word-wrap: break-word;
     white-space: pre-wrap;
-    box-sizing: border-box;
+    box-sizing: border-box; */
     color: #3d3d3d;
     margin-top: 4rpx;
 }
