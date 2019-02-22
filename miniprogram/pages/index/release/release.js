@@ -8,43 +8,45 @@ Page({
         maxlength: 500,
 
         imgList: [],
-        disabled: false,
-
-        count: 0,       // 用作表单id
-        imgListed: [] // 已上传
+        disabled: false
     },
     onLoad: function (options) {
-        
+
     },
     onShow: function () {
-        let _isLogin = wx.getStorageSync('isLogin')
+        let _isLogin = wx.getStorageSync('isLogin');
+        let _that = this;
         if (!_isLogin) {
             wx.showToast({
                 title: '您还未登录,请先登录~',
-                icon: 'none'
+                icon: 'none',
+                duration: 800
             })
-
             setTimeout(() => {
                 wx.navigateTo({
                     url: '../../login/login',
                 })
-            }, 1000)
+            }, 800)
         } else {
-            if(wx.getStorageSync('userInfo').auth === 2){
-                wx.showModal({
-                    title: '您已被禁止发帖',
-                    content: '道路千万条，发帖不规范，已被封禁，请到-我的-联系作者进行解封',
-                    showCancel:false,
-                    success(res) {
-                        console.log('用户点击确定');
-                        wx.switchTab({
-                            url: '../../mine/mine',
-                        })
-                    }
-                })
-                return;
-            }
-            this.getCount()
+            // 判断是否被拉黑
+            db.collection('defriend').where({
+                defriendOpendid: wx.getStorageSync('userInfo')._openid
+            }).get().then(res => {
+                console.log(res)
+                if (res.data.length > 0) {
+                    wx.showModal({
+                        title: '您已被禁止发帖',
+                        content: '道路千万条，发帖不规范，已被封禁，请到-我的-联系作者进行解封',
+                        showCancel: false,
+                        success(res) {
+                            console.log('用户点击确定');
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        }
+                    })
+                }
+            })
         }
     },
     bindTextarea(e) {
@@ -52,24 +54,24 @@ Page({
             currLength: e.detail.cursor
         })
     },
-    onSubmit (e) {
+    onSubmit(e) {
         let _imgList = this.data.imgList;
+        let _that = this;
         if (_imgList.length > 0) {
             // 先上传再提交表单
-            this.lastUpload(e);      // 提交时上传图片
+            this.lastUpload(e); // 提交时上传图片
         } else {
             // 直接提交表单
-            this.submitForm(e);
+            this.submitForm(e, []);
         }
     },
-    submitForm(e) {
+    submitForm(e, imgArr) {
         let _userInfo = wx.getStorageSync('userInfo');
         let _obj = {
-            image: this.data.imgListed,
+            image: imgArr,
             content: e.detail.value.Message,
             nickName: _userInfo.nickName,
             avatarUrl: _userInfo.avatarUrl,
-            id: this.data.count,
             createTime: db.serverDate()
         }
 
@@ -83,14 +85,12 @@ Page({
             _that.setData({
                 disabled: true
             })
-            // 提交反馈
-            console.log(_obj)
-            // return;
             db.collection('kklist').add({
                 data: _obj,
                 success: res => {
                     wx.showToast({
                         title: '操作成功',
+                        duration: 500
                     })
                     _that.setData({
                         disabled: false
@@ -100,7 +100,7 @@ Page({
                         wx.navigateBack({
                             delta: 1
                         })
-                    }, 1000)
+                    }, 500)
                 },
                 fail: e => {
                     wx.showToast({
@@ -119,7 +119,8 @@ Page({
         let _this = this;
         wx.chooseImage({
             count: 9,
-            success: function(res) {
+            sizeType: ['compressed'], // 压缩
+            success: function (res) {
                 _this.updateImgFile(res);
             }
         })
@@ -127,12 +128,10 @@ Page({
     // 准备上传图片
     updateImgFile(obj) {
         let _this = this;
-        let _imgList = [],
-            _imgListed = [];
+        let _imgList = [];
         if (obj.tempFilePaths) {
             obj.tempFilePaths.map((item, index) => {
                 _imgList = _this.data.imgList;
-                _imgListed = _this.data.imgListed;
                 _imgList.push(item); // 临时图片数组
                 _this.setData({
                     imgList: _imgList
@@ -142,37 +141,42 @@ Page({
     },
 
     // 最后上传
-    lastUpload(e){
+    lastUpload(e) {
         let _this = this;
         let _imgList = _this.data.imgList,
             _imgListed = [];
+        let _floder = this.getUserId();
+        let _openid = wx.getStorageSync('userInfo')._openid;
         wx.showLoading({
             title: '上传中...',
         })
-        _imgList.map((item,index)=>{
-            const cloudPath = 'kklist/item' + _this.data.count + '/' + index + item.match(/\.[^.]+?$/)[0]
+        _imgList.map((item, index) => {
+            const cloudPath = 'kklist/' + _openid + '-' + _floder + '/' + index + item.match(/\.[^.]+?$/)[0]
             // 图片开始异步上传
             wx.cloud.uploadFile({
                 cloudPath: cloudPath,
                 filePath: item,
             }).then(res => {
-                console.log(res)
-                _imgListed.push(res.fileID);
-                // 所有图片上传结束
-                if (_imgList.length === index + 1) {
-                    wx.hideLoading()
-                    _this.setData({
-                        imgListed: _imgListed
-                    },()=>{
-                        // 可以提交表单了
-                        _this.submitForm(e);
-                    })
+                if (res.statusCode === 200) {
+                    _imgListed.push(res.fileID);
+                    // 所有图片上传结束
+                    if (_imgList.length === _imgListed.length) {
+                        _this.submitForm(e, _imgListed);
+                        wx.hideLoading();
+                    }
                 }
             }).catch(err => {
                 console.log(err);
             })
         })
-        
+
+    },
+    // 获取随机字符串
+    getUserId() {
+        let w = "abcdefghijklmnopqrstuvwxyz0123456789",
+            firstW = w[parseInt(Math.random() * (w.length))];
+        let userId = firstW + (Date.now()) + (Math.random() * 100000).toFixed(0)
+        return userId;
     },
     // -----------------------------------上传图片end------------------------------------
     previewImage(e) {
@@ -189,7 +193,7 @@ Page({
         wx.showModal({
             title: '提示',
             content: '是否删除',
-            success: function(res) {
+            success: function (res) {
                 if (res.confirm) {
                     _that.delImg(e);
                 }
@@ -199,23 +203,10 @@ Page({
     delImg(e) {
         let idx = e.currentTarget.dataset.index;
         let _imgList = this.data.imgList;
-        // let _Ex_Attach = this.data.releaseParams.Ex_Attach;
         _imgList.splice(idx, 1);
-        // _Ex_Attach.splice(idx, 1)
         this.setData({
-            imgList: _imgList,
-            // 'releaseParams.Ex_Attach': _Ex_Attach
+            imgList: _imgList
         })
         console.log(this.data.imgList)
-    },
-    getCount() {
-        let _that = this
-        db.collection('kklist').count({
-            success: res => {
-                _that.setData({
-                    count: res.total + 1
-                })
-            }
-        })
     }
 })

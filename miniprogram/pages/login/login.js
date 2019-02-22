@@ -5,7 +5,8 @@ const _ = db.command
 Page({
     data: {
         isLogin: false,
-        userInfo: null
+        userInfo: null,
+        disabled:true
     },
     onLoad: function (options) {
 
@@ -43,6 +44,9 @@ Page({
                 _that.handleUserInfo(res);
             } else {
                 console.log('用户不存在')
+                _that.setData({
+                    disabled:false
+                })
             }
         }).catch(err => {
             console.log(err)
@@ -98,12 +102,12 @@ Page({
         wx.setStorageSync('userInfo', res.data[0])
         wx.showToast({
             title: '用户登录成功',
+            duration: 800
         })
         setTimeout(() => {
             wx.navigateBack({
                 delta: 1
             })
         },800)
-     
     }
 })

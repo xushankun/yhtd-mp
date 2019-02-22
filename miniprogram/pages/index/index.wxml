@@ -6,7 +6,7 @@
             <view class="item-right">
                 <view class="username">{{item.nickName || '路人甲'}}</view>
                 <view class='item-text'>
-                    <displayPartText lineNumber="2" textLineHeight="44" showBtnText="更多">{{item.content}}</displayPartText>
+                    <displayPartText lineNumber="2" textLineHeight="44" showBtnText="全文" hideBtnText="收起">{{item.content}}</displayPartText>
                 </view>
                 <view class='img-block'>
                     <image class='img' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="{{_index}}" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}" src='{{_item || ""}}' catchtap="previewImage"></image>

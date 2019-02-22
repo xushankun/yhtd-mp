@@ -1,4 +1,4 @@
 <!--miniprogram/pages/login/login.wxml-->
 <view>
-    <button open-type='getUserInfo' bindgetuserinfo='getUserInfoHandler' class="userInfo-btn">微信快捷登录</button>
+    <button open-type='getUserInfo' disabled='{{disabled}}'  bindgetuserinfo='getUserInfoHandler' class="userInfo-btn">{{disabled ? '正在查询用户是否存在' : '微信快捷登录'}}</button>
 </view>

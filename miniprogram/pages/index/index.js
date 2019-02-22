@@ -30,6 +30,7 @@ Page({
 
     },
     onShow: function() {
+        this.onServices();  // 每次进页面查看是否授权
         let _isLogin = wx.getStorageSync('isLogin');
         let _userInfo = wx.getStorageSync('userInfo');
         if (_isLogin) {
@@ -48,7 +49,6 @@ Page({
                 openid: res.result.openid
             })
             this.onQuery(false, true);
-            this.onServices();
         }).catch(err => {
             console.error('[云函数] [login] 调用失败', err)
         })
@@ -270,37 +270,28 @@ Page({
         }).get().then(res => {
             if (res.data.length > 0) {
                 let _duserInfo = res.data[0];
-                db.collection('users').doc(res.data[0]._id).update({
-                    data: {
-                        auth: 2
-                    },
-                }).then(res => {
-                    console.log(res)
-                    db.collection('defriend').where({
-                        _openid: _openid
-                    }).get().then(res=>{
-                        if(res.data.length > 0) {
+                db.collection('defriend').where({
+                    defriendOpendid: _openid
+                }).get().then(res => {
+                    if (res.data.length > 0) {
+                        wx.showToast({
+                            title: '该用户已经被拉黑',
+                            icon: "none"
+                        })
+                    } else {
+                        db.collection('defriend').add({
+                            data: {
+                                avatarUrl: _duserInfo.avatarUrl,
+                                nickName: _duserInfo.nickName,
+                                createTime: db.serverDate(),
+                                defriendOpendid: _openid
+                            }
+                        }).then(res => {
                             wx.showToast({
-                                title: '该用户已被拉黑',
-                                icon:"none"
+                                title: '操作成功'
                             })
-                        } else {
-                            db.collection('defriend').add({
-                                data: {
-                                    avatarUrl: _duserInfo.avatarUrl,
-                                    nickName: _duserInfo.nickName,
-                                    createTime: db.serverDate(),
-                                    defriendOpendid: _openid
-                                }
-                            }).then(res => {
-                                console.log(res)
-                                wx.showToast({
-                                    title: '操作成功'
-                                })
-                            })
-                        }
-                    })
-
+                        })
+                    }
                 })
             } else {
                 console.log('用户不存在')

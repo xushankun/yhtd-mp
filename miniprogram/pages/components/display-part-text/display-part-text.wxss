@@ -18,7 +18,7 @@
   background: #fff;
   box-sizing: border-box;
   font-size: 28rpx;
-  color: #409eff;
+  color: #576b95;
 }
 
 /* 右下角 */

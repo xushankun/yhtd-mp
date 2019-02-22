@@ -4,96 +4,50 @@ const db = wx.cloud.database();
 const _dbc = 'defriend';
 Page({
     data: {
-        listData:null
+        listData: null
     },
-    unDefriend(e){
+    unDefriend(e) {
+        let _that = this;
         let _openid = e.currentTarget.dataset.openid
-        console.log('取消拉黑');
-        console.log(_openid)
-        db.collection('users').where({
-            _openid: _openid
-        }).get().then(res=>{
-               if (res.data.length > 0) {
-                let _duserInfo = res.data[0];
-                db.collection('users').doc(res.data[0]._id).update({
-                    data: {
-                        auth: 0
-                    },
-                }).then(res => {
-                    db.collection(_dbc).where({
-                        _openid: _openid
-                    }).get().then(res => {
-                        if (res.data.length > 0) {
-                            db.collection(_dbc).doc(e.currentTarget.dataset.id).remove().then(res=>{
-                                wx.showToast({
-                                    title: '操作成功'
-                                })
-                            })
-                        }
-                    })
-
-                })
-            } else {
-                console.log('用户不存在')
-            }
-        }).catch(err => {
-            console.log(err)
-        })
-
-
-
-
-
-
-
-
-
-
-
-        db.collection(_dbc).doc(res.data[0]._id).update({
-            data: {
-                auth: 0
-            },
-        })
-
         db.collection(_dbc).where({
-            _openid: _openid
-        }).then(res=>{
-            db.collection(_dbc).doc(res.data[0]._id).update({
-                data: {
-                    auth: 0
-                },
+            defriendOpendid: _openid
+        }).get().then(res => {
+            if (res.data.length > 0) {
+                db.collection(_dbc).doc(e.currentTarget.dataset.id).remove().then(res => {
+                    wx.showToast({
+                        title: '操作成功'
+                    })
+                    _that.getDefriendList();
+                })
+            }
+        })
+    },
+    getDefriendList() {
+        db.collection(_dbc).orderBy('createTime', 'desc').get().then(res => {
+            this.setData({
+                listData: res.data
             })
         })
-     
     },
-    getDefriendList(){
-        db.collection(_dbc).orderBy('createTime', 'desc').get().then(res=>{
-            console.log(res)
-            // this.setData({
-            //     listData:res.data
-            // })
-        })
-    },
-    onLoad: function (options) {
+    onLoad: function(options) {
 
     },
-    onShow: function () {
+    onShow: function() {
         this.getDefriendList();
     },
-    onHide: function () {
+    onHide: function() {
 
     },
-    onUnload: function () {
+    onUnload: function() {
 
     },
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })
