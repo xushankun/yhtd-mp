@@ -119,7 +119,6 @@ Page({
         let _this = this;
         wx.chooseImage({
             count: 9,
-            sizeType: ['compressed'], // 压缩
             success: function (res) {
                 _this.updateImgFile(res);
             }
