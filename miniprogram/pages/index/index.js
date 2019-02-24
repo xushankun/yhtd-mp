@@ -31,7 +31,7 @@ Page({
 
   },
   onShow: function() {
-    this.onServices(); // 每次进页面查看是否授权
+    this.onServices();
     let _isLogin = wx.getStorageSync('isLogin');
     let _userInfo = wx.getStorageSync('userInfo');
     if (_isLogin) {
