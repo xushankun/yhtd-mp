@@ -1,11 +1,15 @@
 <!--miniprogram/pages/home.wxml-->
-<view class="index w100 {{isHeader ? 'header-active' : ''}}">
-  <view class="header-block">
+<view class="index w100">
+  <view class="header-block pr">
     <image class="banner" src='cloud://shankun-r-7ee811.7368-shankun-r-7ee811/images/bg/bg4.jpg' mode="aspectFill"></image>
-    <navigator url="../mine/mine" wx:if="{{isRelease}}">
+    <navigator class="mine-btn-block {{isHeader ? 'active' : ''}}" url="../mine/mine">
+      <image class="banner" src='cloud://shankun-r-7ee811.7368-shankun-r-7ee811/images/bg/bg4.jpg' mode="aspectFill"></image>
       <view class="mine-btn">我的空间</view>
     </navigator>
   </view>
+
+
+  <!-- 列表 -->
   <view class="list-block w100">
     <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="{{index}}">
       <image class='userImg mr10' src='{{item.avatarUrl}}'></image>
