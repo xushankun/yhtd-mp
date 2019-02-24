@@ -2,7 +2,7 @@
 <view class="index w100 {{isHeader ? 'header-active' : ''}}">
   <view class="header-block">
     <image class="banner" src='cloud://shankun-r-7ee811.7368-shankun-r-7ee811/images/bg/bg4.jpg' mode="aspectFill"></image>
-    <navigator url="../mine/mine">
+    <navigator url="../mine/mine" wx:if="{{isRelease}}">
       <view class="mine-btn">我的空间</view>
     </navigator>
   </view>

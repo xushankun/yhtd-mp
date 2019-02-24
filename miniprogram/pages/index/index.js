@@ -320,12 +320,13 @@ Page({
     })
   },
   onPageScroll: function(e) {
+    console.log(e.scrollTop)
     if (e.scrollTop > 0 && !this.data.isHeader) {
       this.setData({
         isHeader: true
       })
     }
-    if (e.scrollTop < 280 && this.data.isHeader) {
+    if (e.scrollTop < 50 && this.data.isHeader) {
       this.setData({
         isHeader: false
       })
