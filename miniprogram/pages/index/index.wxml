@@ -7,8 +7,6 @@
       <view class="mine-btn">我的空间</view>
     </navigator>
   </view>
-
-
   <!-- 列表 -->
   <view class="list-block w100">
     <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="{{index}}">

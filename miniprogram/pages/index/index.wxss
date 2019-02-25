@@ -2,9 +2,10 @@
 page {
   background: #fff
 }
+
 .mine-btn-block.active {
   width: 100%;
-  height: 160rpx;
+  height: 180rpx;
   position: fixed;
   top: 0;
   background: #eee;
@@ -13,7 +14,7 @@ page {
 .header-block {
   width: 100%;
   height: 300rpx;
-  z-index: 999;
+  z-index: 10;
 }
 
 .header-block .banner {
@@ -26,7 +27,7 @@ page {
   font-size: 40rpx;
   font-weight: blod;
   position: absolute;
-  bottom: 40rpx;
+  bottom: 30rpx;
   left: 30rpx;
   text-decoration: underline;
 }
