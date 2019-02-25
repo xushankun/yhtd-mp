@@ -2,6 +2,7 @@
 <view class="mine">
     <!-- head -->
     <view class="head-block pr">
+        <image  class="main-bg" mode="aspectFill" src="../../images/common/main-bg.jpg"></image>
         <button wx:if="{{!isLogin}}" open-type='getUserInfo' bindgetuserinfo='getUserInfoHandler' class="userInfo-btn">
             <image class='avatar' src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKcgAyqufI4rnhZl09Rdezu3NGkFffotUhOSHsW6sXnnBDJscKU6XicE9QPvkBWBpicDR8Bk0O7NrNA/132'></image>
             <text class='username '>点击头像登录</text>
@@ -43,8 +44,8 @@
         <view class="full-screen-view manban-bg"></view>
         <view class="input-cont">
             <view class="form-cont">
-                <input placeholder="请输入反馈" value="{{actionKey}}" bindinput="bindActionKey"/>
-                <button class="mt20" type="primary"  bindtap="submitKey">
+                <input placeholder="请输入反馈" value="{{actionKey}}" bindinput="bindActionKey" />
+                <button class="mt20" type="primary" bindtap="submitKey">
                     提交
                 </button>
             </view>

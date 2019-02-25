@@ -13,5 +13,16 @@
         "navigationBarBackgroundColor": "#ededed",
         "navigationBarTitleText": "首页",
         "navigationBarTextStyle": "black"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "根据用户当前位置获取实时天气信息"
+        }
+    },
+    "plugins": {
+        "weather": {
+            "version": "1.1.0",
+            "provider": "wx6578a11b90205be3"
+        }
     }
 }

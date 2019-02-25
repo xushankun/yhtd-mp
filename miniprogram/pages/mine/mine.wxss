@@ -4,13 +4,16 @@
 
 .head-block {
     height: 480rpx;
-    background: #eee url('https://7368-shankun-r-7ee811-1254163049.tcb.qcloud.la/images/bg/bg1.jpg?sign=e51b5b59b7ba682b1cc87f32be315066&t=1550556380') center center no-repeat;
-    background-size: cover;
-    /* display: flex;
-    align-items: center; */
     padding-top: 210rpx;
     box-sizing: border-box;
     position: relative;
+}
+.head-block .main-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
 }
 
 .head-block::after {

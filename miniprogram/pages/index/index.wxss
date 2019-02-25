@@ -1,8 +1,24 @@
 /* miniprogram/pages/home.wxss */
+/* 天气插件 */
+weather {
+    width: calc(100% - 20rpx);
+    height: 140rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 90rpx 0 0 20rpx;
+}
+
+
 page {
   background: #fff
 }
-
+.mine-btn-block {
+    display: flex;
+}
 .mine-btn-block.active {
   width: 100%;
   height: 180rpx;
@@ -16,7 +32,15 @@ page {
   height: 300rpx;
   z-index: 10;
 }
-
+.header-block::before, .mine-btn-block.active::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .header-block .banner {
   width: 100%;
   height: inherit;
@@ -36,6 +60,7 @@ page {
 
 .list-block {
   box-sizing: border-box;
+  min-height:100vh;
 }
 
 .item-block {
@@ -128,17 +153,13 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(78, 155, 234, 0.6);
+  background: rgba(0,180,170, 0.5);
   border-radius: 50%;
 }
 
 .release-btn .iconfont {
   color: #fff;
   font-size: 40rpx;
-}
-
-.release-btn.active {
-  bottom: 65rpx;
 }
 
 .back-top {
@@ -150,7 +171,7 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(78, 155, 234, 0.3);
+  background: rgba(0,180,170, 0.5);
   border-radius: 50%;
   bottom: 65rpx;
   font-size: 28rpx;

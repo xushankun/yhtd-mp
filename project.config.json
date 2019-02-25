@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -13,7 +13,7 @@
 	},
 	"appid": "wxb049beb3fea30b12",
 	"projectname": "yhtd-mp",
-	"libVersion": "2.5.1",
+	"libVersion": "2.6.0",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -45,6 +45,12 @@
 					"name": "黑名单",
 					"pathName": "pages/mine/defriendList/defriendList",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "天气",
+					"pathName": "pages/weather/weather",
 					"scene": null
 				}
 			]

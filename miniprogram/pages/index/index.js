@@ -15,11 +15,12 @@ Page({
         searchLoading: true,
         searchLoadingComplete: false,
 
-        isTop: false,
         isRelease: false,
+        isRefreshStatus: false,
         // 权限默认普通用户0，管理员1 ，拉黑用户为2
         auth: 0,
-        openid: ''
+        openid: '',
+        appid:''
     },
     onLoad: function(options) {
 
@@ -48,9 +49,12 @@ Page({
             name: 'login',
             data: {}
         }).then(res => {
-            app.globalData.openid = res.result.openid
+            app.globalData.openid = res.result.openid;
+            app.globalData.appid = res.result.appid
+
             this.setData({
-                openid: res.result.openid
+                openid: res.result.openid,
+                appid: res.result.appid
             })
             this.onQuery(false, true);
         }).catch(err => {
@@ -112,8 +116,10 @@ Page({
             if (isRefresh) {
                 setTimeout(() => {
                     wx.hideLoading()
-                    wx.stopPullDownRefresh();
-                }, 500)
+                    this.setData({
+                        isRefreshStatus: false
+                    })
+                }, 50)
             }
 
         }).catch(err => {
@@ -321,6 +327,7 @@ Page({
         wx.pageScrollTo({
             scrollTop: 0
         })
+        this.refresh();
     },
     onPageScroll: app.util.throttle(function(e) {
         if (e.scrollTop > 60 && !this.data.isHeader) {
@@ -333,26 +340,23 @@ Page({
                 isHeader: false
             })
         }
-        if (e.scrollTop > 280) {
-            this.setData({
-                isTop: true
-            });
-        } else {
-            this.setData({
-                isTop: false
-            });
-        }
     }, 10),
 
     refresh() {
+        this.setData({
+            searchLoading: true,
+            searchLoadingComplete: false,
+            isRefreshStatus:true
+        })
+
         wx.showLoading({
-            title: '加载中',
+            title: 'loading...',
         })
         this.onGetOpenid();
     },
-    onPullDownRefresh() {
-        this.refresh();
-    },
+    // onPullDownRefresh() {
+    //     this.refresh();
+    // },
     onReachBottom() {
         this.setData({
             searchLoading: false,

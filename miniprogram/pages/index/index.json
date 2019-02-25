@@ -1,11 +1,12 @@
 {
   "navigationBarTitleText": "硬核天地",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "backgroundTextStyle": "dark",
   "navigationBarTextStyle": "white",
   "navigationStyle": "custom",
   "onReachBottomDistance": 200,
   "usingComponents": {
-    "displayPartText": "../components/display-part-text/display-part-text"
+    "displayPartText": "../components/display-part-text/display-part-text",
+    "weather": "plugin://weather/weather"
   }
 }
