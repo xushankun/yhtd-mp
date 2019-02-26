@@ -33,6 +33,7 @@ Page({
     },
     onShow: function() {
         this.onServices();
+        // this.getData();
         let _isLogin = wx.getStorageSync('isLogin');
         let _userInfo = wx.getStorageSync('userInfo');
         if (_isLogin) {
@@ -41,6 +42,20 @@ Page({
                 withShareTicket: true
             })
         }
+    },
+    getData(){
+        // 调用名为 router 的云函数，路由名为 user
+        wx.cloud.callFunction({
+            // 要调用的云函数名称
+            name: "router",
+            // 传递给云函数的参数
+            data: {
+                $url: "https://www.ele.me/restapi/shopping/v1/cities", // 要调用的路由的路径，传入准确路径或者通配符*
+                other: "xxx"
+            }
+        }).then(res=>{
+            console.log(res)
+        });
     },
     // 获取openid 我们可以认为是登录
     onGetOpenid() {
