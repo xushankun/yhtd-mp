@@ -49,7 +49,8 @@ page {
 .mine-btn {
   color: #fff;
   font-size: 40rpx;
-  font-weight: blod;
+  font-weight: 700;
+  letter-spacing: 2rpx;
   position: absolute;
   bottom: 30rpx;
   left: 30rpx;
