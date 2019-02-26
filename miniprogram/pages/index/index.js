@@ -20,7 +20,7 @@ Page({
         // 权限默认普通用户0，管理员1 ，拉黑用户为2
         auth: 0,
         openid: '',
-        appid:''
+        appid: ''
     },
     onLoad: function(options) {
 
@@ -264,29 +264,41 @@ Page({
     },
     // 删除
     onDelete(e) {
+        let _that = this;
         let _imgid = e.currentTarget.dataset.imgid;
-        db.collection(_dbc).doc(e.currentTarget.dataset.id).remove().then(res => {
-            // 存在图片则删除图片
-            if (_imgid.length) {
-                wx.cloud.deleteFile({
-                    fileList: _imgid
-                }).then(res => {
-                    console.log(res.fileList)
-                }).catch(err => {
-                    console.log(err)
+        wx.cloud.callFunction({
+            name: 'delItem',
+            data: {
+                _id: e.currentTarget.dataset.id,
+                _imgid: _imgid
+            }
+        }).then(res => {
+            if (res.result.stats.removed === 1) {
+                // 存在图片则删除图片
+                if (_imgid.length) {
+                    wx.cloud.deleteFile({
+                        fileList: _imgid
+                    }).then(res => {
+                        console.log(res.fileList)
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                }
+                wx.showToast({
+                    title: '操作成功'
+                })
+                _that.refresh();
+            } else {
+                wx.showToast({
+                    title: '操作失败',
+                    icon: "none"
                 })
             }
-            wx.showToast({
-                title: '操作成功'
-            })
-            this.refresh();
-        }).catch(err => {
-            console.log(err)
         })
     },
     // 拉黑
     onDefriend(e) {
-        let _openid = e.currentTarget.dataset.openid
+        let _openid = e.currentTarget.dataset.openid;
         db.collection('users').where({
             _openid: _openid
         }).get().then(res => {
@@ -346,7 +358,7 @@ Page({
         this.setData({
             searchLoading: true,
             searchLoadingComplete: false,
-            isRefreshStatus:true
+            isRefreshStatus: true
         })
 
         wx.showLoading({
