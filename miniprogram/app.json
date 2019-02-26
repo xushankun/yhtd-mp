@@ -16,7 +16,7 @@
     },
     "permission": {
         "scope.userLocation": {
-            "desc": "根据用户当前位置获取实时天气信息"
+            "desc": "根据当前位置获取实时天气"
         }
     },
     "plugins": {
