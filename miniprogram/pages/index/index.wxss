@@ -109,9 +109,11 @@ page {
 }
 
 .item-block .img-block .img1 {
-    /* min-width: 100rpx; */
     width: 260rpx;
     height: 380rpx;
+    margin-bottom: 20rpx;
+    background: #f8f8f8;
+    border-radius: 2rpx;
 }
 
 .item-block .img-block .img:nth-child(3n) {

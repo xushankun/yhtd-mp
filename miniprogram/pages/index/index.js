@@ -180,7 +180,7 @@ Page({
             _time = hours + "小时"
             if (hours === 0) {
                 if (minutes === 0) {
-                    _time = seconds + "秒钟"
+                    _time = "刚刚"
                 } else {
                     _time = minutes + "分钟"
                 }

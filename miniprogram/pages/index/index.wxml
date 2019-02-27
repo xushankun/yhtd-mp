@@ -25,7 +25,8 @@
             src='{{_item || ""}}' catchtap="previewImage"></image>
         </view>
         <view class="item-footer">
-          <view class="item-time plr30">{{item.newTime}}前</view>
+         <view class="item-time plr30" wx:if="{{item.newTime === '刚刚' ? true : false}}">{{item.newTime}}</view>
+          <view class="item-time plr30" wx:else>{{item.newTime}}前</view>
           <block wx:if="{{isRelease}}">
             <icon class="iconfont icon-gengduo more-icon" data-imgid="{{item.image}}" data-id="{{item._id}}" data-openid="{{item._openid}}" catchtap="actionBtn" wx:if="{{openid === item._openid || auth === 1}}"></icon>
           </block>
