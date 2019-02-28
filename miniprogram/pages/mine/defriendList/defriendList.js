@@ -12,7 +12,6 @@ Page({
         db.collection(_dbc).where({
             defriendOpenid: _openid
         }).get().then(res => {
-            console.log(res)
             let _defriendInfo = res.data[0];
             if (res.data.length > 0) {
                 wx.cloud.callFunction({

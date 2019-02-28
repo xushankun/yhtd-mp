@@ -216,7 +216,6 @@ Page({
         let _itemList = [];
         let _isLogin = wx.getStorageSync('isLogin');
         let _openid = e.currentTarget.dataset.openid;
-        console.log(e.currentTarget.dataset)
         if (this.data.auth === 1 && _openid !== this.data.openid) {
             _itemList = ['删除', '拉黑该用户'];
         } else {
@@ -259,9 +258,6 @@ Page({
                         }
                     })
                 }
-            },
-            fail(res) {
-                console.log(res.errMsg)
             }
         })
     },

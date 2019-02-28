@@ -47,7 +47,6 @@ Page({
       db.collection('defriend').where({
           defriendOpenid: wx.getStorageSync('userInfo')._openid
       }).get().then(res => {
-        console.log(res)
         if (res.data.length > 0) {
           wx.showModal({
             title: '您已被禁止发帖',
