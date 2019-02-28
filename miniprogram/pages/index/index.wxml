@@ -45,7 +45,7 @@
       <icon class="iconfont icon-fabuxinxi"></icon>
     </view>
   </navigator>
-  <!-- 返回顶部 -->
+  <!-- 刷新并返回顶部 -->
   <view class="back-top" catchtap="backTop">
     <icon class="iconfont icon-icon_refresh"></icon>
   </view>

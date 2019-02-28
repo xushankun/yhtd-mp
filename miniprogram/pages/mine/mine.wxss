@@ -8,6 +8,16 @@
     box-sizing: border-box;
     position: relative;
 }
+.back-page {
+    position: absolute;
+    left: 30rpx;
+    bottom: 330rpx;
+    z-index:100;
+}
+.back-page .iconfont {
+    font-size: 50rpx;
+    color: #fff;
+}
 .head-block .main-bg {
     position: absolute;
     width: 100%;

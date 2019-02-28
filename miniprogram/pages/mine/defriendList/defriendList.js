@@ -10,14 +10,34 @@ Page({
         let _that = this;
         let _openid = e.currentTarget.dataset.openid
         db.collection(_dbc).where({
-            defriendOpendid: _openid
+            defriendOpenid: _openid
         }).get().then(res => {
+            console.log(res)
+            let _defriendInfo = res.data[0];
             if (res.data.length > 0) {
-                db.collection(_dbc).doc(e.currentTarget.dataset.id).remove().then(res => {
+                wx.cloud.callFunction({
+                    name: 'undefriend',
+                    data: {
+                        _id: _defriendInfo._id
+                    }
+                }).then(res=>{
+                    wx.cloud.callFunction({
+                        name: 'updateuser',
+                        data: {
+                            _id: _defriendInfo.defriendId,
+                            _obj: {
+                                auth: 0
+                            }
+                        }
+                    }).then(res => {
+                        wx.showToast({
+                            title: '操作成功'
+                        })
+                        _that.getDefriendList();
+                    })
                     wx.showToast({
                         title: '操作成功'
                     })
-                    _that.getDefriendList();
                 })
             }
         })

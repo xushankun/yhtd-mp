@@ -2,7 +2,11 @@
 <view class="mine">
     <!-- head -->
     <view class="head-block pr">
-        <image  class="main-bg" mode="aspectFill" src="../../images/common/main-bg.jpg"></image>
+        <view class="back-page" catchtap='backPage'>
+            <icon class="iconfont icon-fanhui"></icon>
+        </view>
+
+        <image class="main-bg" mode="aspectFill" src="../../images/common/main-bg.jpg"></image>
         <button wx:if="{{!isLogin}}" open-type='getUserInfo' bindgetuserinfo='getUserInfoHandler' class="userInfo-btn">
             <image class='avatar' src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKcgAyqufI4rnhZl09Rdezu3NGkFffotUhOSHsW6sXnnBDJscKU6XicE9QPvkBWBpicDR8Bk0O7NrNA/132'></image>
             <text class='username '>点击头像登录</text>

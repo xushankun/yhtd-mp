@@ -45,7 +45,7 @@ Page({
     } else {
       // 判断是否被拉黑
       db.collection('defriend').where({
-        defriendOpendid: wx.getStorageSync('userInfo')._openid
+          defriendOpenid: wx.getStorageSync('userInfo')._openid
       }).get().then(res => {
         console.log(res)
         if (res.data.length > 0) {

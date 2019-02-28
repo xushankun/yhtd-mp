@@ -100,7 +100,13 @@ Page({
         wx.setStorageSync('userInfo', res.data[0])
         wx.showToast({
             title: '用户登录成功',
+            duration: 800
         })
+        setTimeout(() => {
+            wx.navigateBack({
+                delta: 1
+            })
+        }, 800)
     },
     onUserInfo() {
         wx.showModal({
@@ -143,6 +149,11 @@ Page({
     goDefriend(){
         wx.navigateTo({
             url: 'defriendList/defriendList',
+        })
+    },
+    backPage(){
+        wx.navigateBack({
+            delta: 1
         })
     }
 })

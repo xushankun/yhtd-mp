@@ -4,7 +4,10 @@
 const cloud = require('wx-server-sdk')
 
 // 初始化 cloud
-cloud.init()
+cloud.init({
+    env: 'shankun-r-7ee811',     // 这里填写【环境ID】 而不是环境名
+    traceUser: true,    // 是否在将用户访问记录到用户管理中，在控制台中可见
+})
 
 /**
  * 这个示例将经自动鉴权过的小程序用户 openid 返回给小程序端

@@ -4,13 +4,9 @@ cloud.init({
     traceUser: true,    // 是否在将用户访问记录到用户管理中，在控制台中可见
 })
 const db = cloud.database()
-
 exports.main = async (event, context) => {
     try {
-        return await db.collection('users').doc(event._id).update({
-            // data 传入需要局部更新的数据
-            data: event._obj
-        })
+        return await db.collection('defriend').doc(event._id).remove()
     } catch (e) {
         console.error(e)
     }

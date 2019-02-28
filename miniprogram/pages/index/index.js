@@ -33,7 +33,6 @@ Page({
     },
     onShow: function() {
         this.onServices();
-        // this.getData();
         let _isLogin = wx.getStorageSync('isLogin');
         let _userInfo = wx.getStorageSync('userInfo');
         if (_isLogin) {
@@ -43,20 +42,7 @@ Page({
             })
         }
     },
-    getData(){
-        // 调用名为 router 的云函数，路由名为 user
-        wx.cloud.callFunction({
-            // 要调用的云函数名称
-            name: "router",
-            // 传递给云函数的参数
-            data: {
-                $url: "https://www.ele.me/restapi/shopping/v1/cities", // 要调用的路由的路径，传入准确路径或者通配符*
-                other: "xxx"
-            }
-        }).then(res=>{
-            console.log(res)
-        });
-    },
+
     // 获取openid 我们可以认为是登录
     onGetOpenid() {
         // 调用云函数
@@ -229,7 +215,9 @@ Page({
         let _that = this;
         let _itemList = [];
         let _isLogin = wx.getStorageSync('isLogin');
-        if (this.data.auth === 1) {
+        let _openid = e.currentTarget.dataset.openid;
+        console.log(e.currentTarget.dataset)
+        if (this.data.auth === 1 && _openid !== this.data.openid) {
             _itemList = ['删除', '拉黑该用户'];
         } else {
             _itemList = ['删除'];
@@ -320,7 +308,7 @@ Page({
             if (res.data.length > 0) {
                 let _duserInfo = res.data[0];
                 db.collection('defriend').where({
-                    defriendOpendid: _openid
+                    defriendOpenid: _openid
                 }).get().then(res => {
                     if (res.data.length > 0) {
                         wx.showToast({
@@ -328,16 +316,30 @@ Page({
                             icon: "none"
                         })
                     } else {
-                        db.collection('defriend').add({
+                        let _obj = {
+                            avatarUrl: _duserInfo.avatarUrl,
+                            nickName: _duserInfo.nickName,
+                            defriendId: _duserInfo._id,
+                            defriendOpenid: _openid
+                        }
+                        wx.cloud.callFunction({
+                            name: 'defriend',
                             data: {
-                                avatarUrl: _duserInfo.avatarUrl,
-                                nickName: _duserInfo.nickName,
-                                createTime: db.serverDate(),
-                                defriendOpendid: _openid
+                                _obj: _obj
                             }
                         }).then(res => {
-                            wx.showToast({
-                                title: '操作成功'
+                            wx.cloud.callFunction({
+                                name: 'updateuser',
+                                data: {
+                                    _id: _duserInfo._id,
+                                    _obj: {
+                                        auth: 2
+                                    }
+                                }
+                            }).then(res => {
+                                wx.showToast({
+                                    title: '操作成功'
+                                })
                             })
                         })
                     }
@@ -354,6 +356,7 @@ Page({
         wx.pageScrollTo({
             scrollTop: 0
         })
+        this.onServices();
         this.refresh();
     },
     onPageScroll: app.util.throttle(function(e) {
@@ -375,7 +378,6 @@ Page({
             searchLoadingComplete: false,
             isRefreshStatus: true
         })
-
         wx.showLoading({
             title: 'loading...',
         })
