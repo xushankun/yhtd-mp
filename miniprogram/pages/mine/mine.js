@@ -123,6 +123,33 @@ Page({
             showCancel: false
         })
     },
+    connectAuther() {
+        wx.showModal({
+            title: '快去博客给他留言吧',
+            content: 'https://shankun.top',
+            confirmText:"复制地址",
+            // showCancel: false,
+            success(res) {
+                if (res.confirm) {
+                    wx.setClipboardData({
+                        data: 'https://shankun.top',
+                        success(res) {
+                            wx.getClipboardData({
+                                success(res) {
+                                    wx.showToast({
+                                        title: 'url复制成功',
+                                        icon: "none"
+                                    })
+                                }
+                            })
+                        }
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    },
     longpress() {
         this.setData({
             isShowForm: true
