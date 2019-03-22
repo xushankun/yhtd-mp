@@ -13,7 +13,7 @@
 	},
 	"appid": "wxb049beb3fea30b12",
 	"projectname": "yhtd-mp",
-	"libVersion": "2.5.0",
+	"libVersion": "2.6.2",
 	"condition": {
 		"search": {
 			"current": -1,

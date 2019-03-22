@@ -13,16 +13,17 @@ Page({
     onShow: function() {
         let _isLogin = wx.getStorageSync('isLogin');
         if (!_isLogin) {
+            let _duration = 800;
             wx.showToast({
                 title: '您还未登录,请先登录~',
                 icon: 'none',
-                duration: 800
+                duration: _duration
             })
             setTimeout(() => {
                 wx.navigateTo({
                     url: '../login/login',
                 })
-            }, 800)
+            }, _duration)
         }  else {
             this.setData({
                 isLogin: true,
