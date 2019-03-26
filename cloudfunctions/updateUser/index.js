@@ -1,3 +1,4 @@
+// 更新用户信息
 const cloud = require('wx-server-sdk')
 cloud.init({
     env: 'shankun-r-7ee811',     // 这里填写【环境ID】 而不是环境名
