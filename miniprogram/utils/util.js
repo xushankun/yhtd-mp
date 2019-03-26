@@ -20,17 +20,7 @@ let formatDate = (_date, fmt) => {
   return fmt;
 }
 
-// 增加days天数
-let addDate = (date, days) => {
-  if (days == undefined || days == '') {
-    days = 1;
-  }
-  var date = new Date(date);
-  date.setDate(date.getDate() + days);
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  return date.getFullYear() + '-' + getFormatDate(month) + '-' + getFormatDate(day);
-}
+
 
 // 日期月份/天的显示，如果是1位数，则在前面加上'0'
 function getFormatDate(arg) {
@@ -44,6 +34,48 @@ function getFormatDate(arg) {
   return re;
 }
 
+
+let timeDiff = (_date) => {
+    let currTime = new Date(); //开始时间
+    let _timeDiff = currTime.getTime() - _date.getTime() //时间差的毫秒数
+
+    //计算出相差天数
+    let days = Math.floor(_timeDiff / (24 * 3600 * 1000))
+
+    //计算出小时数
+    let leave1 = _timeDiff % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    let hours = Math.floor(leave1 / (3600 * 1000))
+    //计算相差分钟数
+    let leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    let minutes = Math.floor(leave2 / (60 * 1000))
+    //计算相差秒数
+    let leave3 = leave2 % (60 * 1000) //计算分钟数后剩余的毫秒数
+    let seconds = Math.round(leave3 / 1000)
+    // console.log(" 相差 " + days + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒")
+    let _time = '';
+    if (days === 0) {
+        _time = hours + "小时"
+        if (hours === 0) {
+            if (minutes === 0) {
+                _time = "刚刚"
+            } else {
+                _time = minutes + "分钟"
+            }
+        }
+    } else if (days === -1) {
+        _time = Math.abs(seconds - 0) + " 秒"
+    } else if (days > 30) {
+        if (days > 365) {
+            _time = parseInt(days / 365) + "年"
+        } else {
+            _time = parseInt(days / 30) + "月"
+        }
+    } else {
+        _time = days + "天"
+    }
+
+    return _time
+}
 
 
 // 成功与普通提示
@@ -155,7 +187,7 @@ let throttle = (func, wait, options) => {
 
 module.exports = {
   formatDate,
-  addDate,
+  timeDiff,
   showSuccess,
   showInfo,
   debounce,
