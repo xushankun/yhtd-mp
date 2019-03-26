@@ -15,8 +15,7 @@
 git clone git@github.com:xushankun/yhtd-mp.git
 ```
 - 打开“微信开发者工具”，导入项目
-
-- 填写appid里的appid改为自己的
+- 填写自己的appid
 - 环境ID改为自己的【包括每个云函数index.js里的环境ID】
 - 数据库添加集合
 ```
