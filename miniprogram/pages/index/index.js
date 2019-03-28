@@ -1,12 +1,14 @@
 // miniprogram/pages/home.js
 const app = getApp();
 const db = wx.cloud.database();
+const _ = db.command;
 const _dbc = 'kklist';
 Page({
     data: {
         openid: '',
         isHeader: false,
 
+        searchValue:'',
         pageIndex: 1,
         pageSize: 10,
         listData: [],
@@ -62,6 +64,15 @@ Page({
             console.error('[云函数] [login] 调用失败', err)
         })
     },
+    // 搜索
+    bindKeyInput(e){
+        console.log(e.detail.value)
+        this.setData({
+            searchValue: e.detail.value
+        },()=>{
+            this.onQuery(false, true);
+        })
+    },
     onQuery(isBottom, isRefresh) {
         if (!isBottom) {
             this.setData({
@@ -71,7 +82,13 @@ Page({
         // 分页
         let _skip = (this.data.pageIndex - 1) * this.data.pageSize; // 从多少条开始返回
         let _limit = this.data.pageSize; // 最多返回多少条
-        db.collection(_dbc).limit(_limit).skip(_skip).orderBy('createTime', 'desc').get().then(res => {
+        db.collection(_dbc).where({
+            // 模糊查询
+            content: db.RegExp({
+                regexp: this.data.searchValue, //从搜索栏中获取的value作为规则进行匹配。
+                options: 'i',    //大小写不区分
+            })
+        }).limit(_limit).skip(_skip).orderBy('createTime', 'desc').get().then(res => {
             console.log('[数据库] [查询记录] 成功: ', res.data)
             let _res = res.data;
             // _res = []
