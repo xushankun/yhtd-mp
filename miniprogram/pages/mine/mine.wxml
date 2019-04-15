@@ -31,7 +31,7 @@
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view> -->
-        <view class="action-item border-top" catchtap="goUserList" wx:if="{{userInfo.auth === 1}}">
+        <view class="action-item" catchtap="goUserList" wx:if="{{userInfo.auth === 1}}">
             <view class="item-content">
                 <text class="item-title">所有用户</text>
                 <icon class="iconfont icon-jinruyou"></icon>
