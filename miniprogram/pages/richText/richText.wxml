@@ -1,0 +1,4 @@
+<!--miniprogram/pages/richText/richText.wxml-->
+<view style='margin-left:3%;margin-right:3%;margin-top:30rpx;margin-bottom:30rpx;'>
+  <Parser html='{{html}}' bindparse='parse'/>
+</view>

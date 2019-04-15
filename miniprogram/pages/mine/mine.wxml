@@ -11,7 +11,7 @@
             <image class='avatar' src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKcgAyqufI4rnhZl09Rdezu3NGkFffotUhOSHsW6sXnnBDJscKU6XicE9QPvkBWBpicDR8Bk0O7NrNA/132'></image>
             <text class='username '>{{userInfo.nickName || '未登录'}}</text>
         </button> -->
-        <button class="userInfo-btn"  catchtap='onUserInfo'>
+        <button class="userInfo-btn" catchtap='onUserInfo'>
             <image class='avatar' src='{{userInfo.avatarUrl || "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKcgAyqufI4rnhZl09Rdezu3NGkFffotUhOSHsW6sXnnBDJscKU6XicE9QPvkBWBpicDR8Bk0O7NrNA/132"}}'></image>
             <text class='username active'>{{userInfo.nickName || '未登录'}}</text>
         </button>
@@ -19,14 +19,21 @@
 
     <!-- info -->
     <view>
-        <view></view>
-        <view class="about-yh">硬核，作为网络流行语的该词，原本的含义为形容说唱音乐和游戏。因此早有硬核说唱和硬核游戏的说法。硬核说唱是更具有力量感的音乐形式，热情奔放猛烈强劲。而硬核游戏存在一定难度并有特定受众的游戏。但是作为网络语而流行起来的“硬核”这个词使用的范围更加广泛，不单单形容说唱和游戏，我们可以把它理解为是一种很厉害、很酷、很彪悍、很刚硬的意思。</view>
+        <!-- <view></view> -->
+        <Parser html='{{html}}' bindparse='parse' />
+        <!-- <view class="about-yh">硬核，作为网络流行语的该词，原本的含义为形容说唱音乐和游戏。因此早有硬核说唱和硬核游戏的说法。硬核说唱是更具有力量感的音乐形式，热情奔放猛烈强劲。而硬核游戏存在一定难度并有特定受众的游戏。但是作为网络语而流行起来的“硬核”这个词使用的范围更加广泛，不单单形容说唱和游戏，我们可以把它理解为是一种很厉害、很酷、很彪悍、很刚硬的意思。</view> -->
     </view>
     <!-- action-block -->
     <view class="action-list border-top border-bottom w100">
-        <view class="action-item" catchtap="connectAuther">
+        <!-- <view class="action-item" catchtap="connectAuther">
             <view class="item-content">
                 <text class="item-title"> 硬核天地</text>
+                <icon class="iconfont icon-jinruyou"></icon>
+            </view>
+        </view> -->
+        <view class="action-item border-top" catchtap="goUserList" wx:if="{{userInfo.auth === 1}}">
+            <view class="item-content">
+                <text class="item-title">所有用户</text>
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view>
@@ -36,7 +43,7 @@
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view>
-         <button class="action-item contact-btn border-top" open-type="contact" session-from="weapp" catchlongpress="longpress">
+        <button class="action-item contact-btn border-top" open-type="contact" session-from="weapp" catchlongpress="longpress">
             <view class="item-content">
                 <text class="item-title">联系作者</text>
                 <icon class="iconfont icon-jinruyou"></icon>
@@ -49,4 +56,7 @@
             </view>
         </view> -->
     </view>
+    <!-- copyright -->
+    <view style='padding-bottom:160rpx'></view>
+    <view class="copyright">copyright @ 2019 </view>
 </view>

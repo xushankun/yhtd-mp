@@ -7,7 +7,7 @@
         <view class="mine-btn-block {{isHeader ? 'active' : ''}}">
             <image class="banner" src='../../images/common/index-bg.jpg' mode="aspectFill"></image>
             <navigator class="mine-btn" url="../mine/mine">我的空间</navigator>
-            <input class="search-input" placeholder-class="search-input-place" bindinput="bindKeyInput" placeholder="输入关键词" />
+            <input class="search-input" placeholder-class="search-input-place" bindinput="bindKeyInput" placeholder="输入关键词" wx:if="{{false}}" />
         </view>
 
     </view>
@@ -36,11 +36,24 @@
                 </view>
             </view>
         </view>
+        <!-- 加载更多 -->
+        <view wx:if="{{listData.length ? true : false}}">
+              <view class="loading" hidden="{{!searchLoading}}">疯狂加载中...</view>
+              <view class="loading complete" hidden="{{!searchLoadingComplete}}">--没有更多数据--</view>
+        </view>
+        <view class='empty-list' wx:if="{{listData.length ? false : true}}">
+            当前一条数据都没有哦!
+        </view>
+  
     </view>
-
-    <!-- 加载更多 -->
-    <view class="loading" hidden="{{!searchLoading}}">疯狂加载中...</view>
-    <view class="loading complete" hidden="{{!searchLoadingComplete}}">--没有更多数据--</view>
+    <!-- loading -->
+    <view class="loading-block" wx:else>
+        <text></text>
+        <text></text>
+        <text></text>
+        <text></text>
+        <text></text>
+    </view>
 
     <navigator url="release/release" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
         <view class="release-btn">

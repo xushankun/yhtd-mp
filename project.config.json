@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -52,6 +52,19 @@
 					"name": "天气",
 					"pathName": "pages/weather/weather",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "富文本",
+					"pathName": "pages/richText/richText",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户列表",
+					"pathName": "pages/mine/userList/userList",
 					"scene": null
 				}
 			]

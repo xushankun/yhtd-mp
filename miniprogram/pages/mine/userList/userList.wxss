@@ -1,0 +1,48 @@
+/* miniprogram/pages/mine/userList/userList.wxss */
+page {
+    background: #ededed
+}
+.list-block {
+    box-sizing: border-box;
+}
+
+.item-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100rpx;
+    margin-bottom: 10rpx;
+    background: #fff;
+}
+.item-block .cancel-btn {
+    margin: 0;
+    font-size: 28rpx;
+    color:#454545;
+    margin-left: 30rpx
+}
+.item-block .user-block {
+    display: flex;
+    align-items: center;
+}
+
+.item-block .userImg {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+
+
+.tips {
+    margin-top:80rpx;
+    font-size: 32rpx;
+    color:#454545;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+/* 2019/4/15 */
+.create-time {
+    display: flex;
+    align-items: center
+}

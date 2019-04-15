@@ -14,6 +14,19 @@ weather {
     padding: 90rpx 0 0 20rpx;
 }
 
+.weather-btn {
+    position: absolute;
+    left: 30rpx;
+    bottom: 90rpx;
+    text-align: left;
+    font-size: 28rpx;
+    color: #fff;
+    padding: 10rpx 12rpx;
+    line-height: inherit;
+    border-radius: 0;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
 page {
     background: #fff;
 }
@@ -66,11 +79,12 @@ page {
     position: absolute;
     bottom: 34rpx;
     left: 210rpx;
-    background: rgba(0,0,0,.4);
-    padding-left: 20rpx
+    background: rgba(0, 0, 0, 0.4);
+    padding-left: 20rpx;
 }
+
 .search-input-place {
-    color: #eee
+    color: #eee;
 }
 
 /* 列表 */
@@ -168,6 +182,15 @@ page {
     border-radius: 4rpx;
 }
 
+.empty-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 140rpx;
+    color: #666;
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
 /* release */
 
 .release-btn {
@@ -207,4 +230,53 @@ page {
 .back-top {
     color: #fff;
     font-size: 40rpx;
+}
+
+/* loading */
+
+.loading-block {
+    width: 140rpx;
+    margin: 0 auto;
+    margin-top: 200rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loading-block text {
+    display: inline-block;
+    width: 16rpx;
+    height: 100%;
+    border-radius: 8rpx;
+    background: lightgreen;
+    -webkit-animation: load 1s ease infinite;
+}
+
+@-webkit-keyframes load {
+    0%, 100% {
+        height: 80rpx;
+        background: lightgreen;
+    }
+
+    50% {
+        height: 140rpx;
+        margin: -30rpx 0;
+        background: lightblue;
+    }
+}
+
+.loading-block text:nth-child(2) {
+    -webkit-animation-delay: 0.2s;
+}
+
+.loading-block text:nth-child(3) {
+    -webkit-animation-delay: 0.4s;
+}
+
+.loading-block text:nth-child(4) {
+    -webkit-animation-delay: 0.6s;
+}
+
+.loading-block text:nth-child(5) {
+    -webkit-animation-delay: 0.8s;
 }

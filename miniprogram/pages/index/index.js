@@ -18,7 +18,7 @@ Page({
         searchLoadingComplete: false,
 
         isRelease: false,
-        isRefreshStatus: false,
+        isRefreshStatus: true,
         // 权限默认普通用户0，管理员1 ，拉黑用户为2
         auth: 0,
         openid: '',
@@ -91,7 +91,6 @@ Page({
         }).limit(_limit).skip(_skip).orderBy('createTime', 'desc').get().then(res => {
             console.log('[数据库] [查询记录] 成功: ', res.data)
             let _res = res.data;
-            // _res = []
             if (_res.length) {
                 _res.map(item => {
                     if (item.createTime) {
@@ -133,11 +132,10 @@ Page({
 
             if (isRefresh) {
                 setTimeout(() => {
-                    wx.hideLoading()
                     this.setData({
                         isRefreshStatus: false
                     })
-                }, 50)
+                }, 200)
             }
 
         }).catch(err => {
@@ -237,7 +235,7 @@ Page({
             }
         })
     },
-    // 删除
+    // 删除帖子
     onDelete(e) {
         let _that = this;
         let _imgid = e.currentTarget.dataset.imgid;
@@ -350,14 +348,8 @@ Page({
             searchLoadingComplete: false,
             isRefreshStatus: true
         })
-        wx.showLoading({
-            title: 'loading...',
-        })
         this.onGetOpenid();
     },
-    // onPullDownRefresh() {
-    //     this.refresh();
-    // },
     onReachBottom() {
         this.setData({
             searchLoading: false,

@@ -4,7 +4,9 @@
         "pages/index/release/release",
         "pages/mine/mine",
         "pages/mine/defriendList/defriendList",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/richText/richText",
+        "pages/mine/userList/userList"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -15,7 +17,7 @@
     },
     "permission": {
         "scope.userLocation": {
-            "desc": "根据当前位置获取实时天气"
+            "desc": "当前只用于获取实时天气"
         }
     },
     "plugins": {

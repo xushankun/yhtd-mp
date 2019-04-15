@@ -26,7 +26,8 @@ page {
 }
 
 .submit-info {
-    background: #2282e5;
+    /* background: #2282e5; */
+    background:rgba(0, 180, 170,1);
     color: #fff;
     position: fixed;
     width: calc(100% - 60rpx);
@@ -79,4 +80,8 @@ page {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.button-hover {
+  background-color: red;
 }

@@ -2,5 +2,7 @@
   "navigationBarTitleText": "我的",
   "navigationStyle": "custom",
   "navigationBarTextStyle": "white",
-  "usingComponents": {}
+  "usingComponents": {
+        "Parser": "../../Parser/index"
+  }
 }

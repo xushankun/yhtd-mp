@@ -1,0 +1,278 @@
+<!--Parser-->
+<!--各类型模板-->
+<template name='video'>
+  <video src='{{item.attrs.src}}' controls='{{item.attrs.controls}}' style="{{item.attrs.style+(item.attrs.width?(';width:'+item.attrs.width):'')+(item.attrs.height?('height:'+item.attrs.height):'')}}" />
+</template>
+<template name='img'>
+  <image src='{{item.attrs.src}}' mode='widthFix' style="{{item.attrs.style+(item.attrs.width?(';width:'+item.attrs.width):'')+(item.attrs.height?('height:'+item.attrs.height):'')}}" data-src='{{item.attrs.src}}' bindtap='previewImg' />
+</template>
+<template name='a'>
+  <view style="{{item.attrs.style}}" hover-class='a'>
+    <text style='word-break:break-all;' space='{{space}}' data-href='{{item.attrs.href}}' bindtap='navigate' bindlongpress='copyhref'>{{item.children[0].text?item.children[0].text:'链接'}}</text>
+  </view>
+</template>
+<template name='rich-text'>
+  <scroll-view scroll-x scroll-y>
+    <rich-text nodes='{{[item]}}' space="{{item.name=='table'?false:space}}" />
+  </scroll-view>
+</template>
+<!--入口-->
+<template is='rich-text-floor1' data='{{nodes,space}}' />
+<!--各层级-->
+<template name='rich-text-floor1'>
+  <block wx:for='{{nodes}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor2' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor2'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor3' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor3'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor4' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor4'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor5' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor5'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor6' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor6'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor7' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor7'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor8' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor8'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor9' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor9'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor10' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor10'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor11' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor11'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor12' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor12'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor13' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor13'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor14' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor14'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor15' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor15'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor16' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor16'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor17' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor17'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor18' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor18'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor19' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor19'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
+    <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <block wx:else>
+      <view style="{{item.attrs.style+(item.attrs.align?(';text-align:'+item.attrs.align):'')+(item.name==='strong'?';font-weight:bold':'')}}">
+        <template is='rich-text-floor20' data='{{item,space}}' />
+      </view>
+    </block>
+  </block>
+</template>
+<template name='rich-text-floor20'>
+  <block wx:for='{{item.children}}' wx:key>
+    <template wx:if="{{item.name=='img'}}" is='img' data='{{item}}' />
+    <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />
+    <template wx:elif="{{item.name=='a'}}" is='a' data='{{item,space}}' />
+    <scroll-view wx:else scroll-x scroll-y>
+      <rich-text space='{{space}}' nodes='{{[item]}}' space='{{space}}'></rich-text>
+    </scroll-view>
+  </block>
+</template>
