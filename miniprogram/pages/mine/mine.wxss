@@ -17,7 +17,8 @@
 .back-page {
     position: absolute;
     left: 30rpx;
-    top:13vw;
+    /* top: 80rpx; */
+    /* top:13vw; */
     z-index: 100;
 }
 

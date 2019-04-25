@@ -6,6 +6,7 @@ Page({
     data: {
         isLogin: false,
         userInfo: null,
+        statusBarH:20,
         html:`  <section data-id="94534" style="border: 0px none;">
     <section style="width:95%;margin:20px auto;" data-width="95%">
       <section style="box-shadow: 0px 2px 10px #a9cfd5;">
@@ -43,7 +44,15 @@ Page({
         console.log(e.detail)
     },
     onLoad: function(options) {
-
+      let _that = this;
+      wx.getSystemInfo({
+        success(res) {
+          // 自定义导航栏时需要获取状态栏高度来做自适应
+          _that.setData({
+            statusBarH: res.statusBarHeight
+          })
+        }
+      })
     },
     onShow: function() {
         let _isLogin = wx.getStorageSync('isLogin');

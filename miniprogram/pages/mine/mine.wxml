@@ -2,7 +2,7 @@
 <view class="mine">
     <!-- head -->
     <view class="head-block pr">
-        <view class="back-page" catchtap='backPage'>
+        <view class="back-page" style='top:{{2 * statusBarH + 16}}rpx' catchtap='backPage'>
             <icon class="iconfont icon-fanhui"></icon>
         </view>
 
