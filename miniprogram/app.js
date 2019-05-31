@@ -1,5 +1,4 @@
 //app.js
-//app.js
 const apiConfig = require('./utils/request.js').apiConfig;
 const api = require('./utils/api.js');
 const util = require('./utils/util.js');
@@ -38,7 +37,7 @@ App({
           console.log('您有新版本需要更新')
         }
       })
-    
+
       updateManager.onUpdateReady(function () {
         wx.showModal({
           title: '更新提示',
