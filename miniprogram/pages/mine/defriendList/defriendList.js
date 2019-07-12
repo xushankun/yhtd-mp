@@ -4,9 +4,17 @@ const db = wx.cloud.database();
 const _dbc = 'defriend';
 Page({
     data: {
+      userInfo: null,
         listData: null
     },
     unDefriend(e) {
+      if (!(this.data.userInfo.auth === 1)) {
+        wx.showToast({
+          title: '权限受限，可联系管理员',
+          icon: "none"
+        })
+        return
+      }
         let _that = this;
         let _openid = e.currentTarget.dataset.openid
         db.collection(_dbc).where({
@@ -52,6 +60,9 @@ Page({
 
     },
     onShow: function() {
+      this.setData({
+        userInfo: wx.getStorageSync('userInfo')
+      })
         this.getDefriendList();
     },
     onHide: function() {

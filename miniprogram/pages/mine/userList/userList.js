@@ -4,6 +4,7 @@ const db = wx.cloud.database();
 const _dbc = 'users';
 Page({
     data: {
+      userInfo: null,
         listData: null
     },
     getUserList() {
@@ -22,6 +23,13 @@ Page({
     },
     // 拉黑
     onDefriend(e) {
+      if (!(this.data.userInfo.auth === 1)) {
+        wx.showToast({
+          title: '您没有拉黑权限，可联系管理员',
+          icon: "none"
+        })
+        return
+      }
         let _openid = e.currentTarget.dataset.openid;
         db.collection(_dbc).where({
             _openid: _openid
@@ -80,6 +88,9 @@ Page({
 
     },
     onShow: function() {
+      this.setData({
+          userInfo: wx.getStorageSync('userInfo')
+      })
         this.getUserList();
     },
 

@@ -31,13 +31,13 @@
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view> -->
-        <view class="action-item" catchtap="goUserList" wx:if="{{userInfo.auth === 1}}">
+        <view class="action-item" catchtap="goUserList">
             <view class="item-content">
                 <text class="item-title">所有用户</text>
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </view>
-        <view class="action-item border-top" catchtap="goDefriend" wx:if="{{userInfo.auth === 1}}">
+        <view class="action-item border-top" catchtap="goDefriend">
             <view class="item-content">
                 <text class="item-title">拉黑名单</text>
                 <icon class="iconfont icon-jinruyou"></icon>

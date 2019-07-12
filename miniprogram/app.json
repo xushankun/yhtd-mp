@@ -1,29 +1,30 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/index/release/release",
-        "pages/mine/mine",
-        "pages/mine/defriendList/defriendList",
-        "pages/login/login",
-        "pages/richText/richText",
-        "pages/mine/userList/userList"
-    ],
-    "window": {
-        "backgroundColor": "#F6F6F6",
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ededed",
-        "navigationBarTitleText": "首页",
-        "navigationBarTextStyle": "black"
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "当前只用于获取实时天气"
-        }
-    },
-    "plugins": {
-        "weather": {
-            "version": "1.1.0",
-            "provider": "wx6578a11b90205be3"
-        }
+  "pages": [
+    "pages/index/index",
+    "pages/index/release/release",
+    "pages/mine/mine",
+    "pages/mine/defriendList/defriendList",
+    "pages/login/login",
+    "pages/richText/richText",
+    "pages/mine/userList/userList"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ededed",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "当前只用于获取实时天气"
     }
+  },
+  "plugins": {
+    "weather": {
+      "version": "1.1.0",
+      "provider": "wx6578a11b90205be3"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
 }
