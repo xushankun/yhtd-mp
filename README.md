@@ -13,7 +13,7 @@
 
 
 公共组件display-part-text的使用【pages/components/display-part-text】
-第三方天气插件的使用【首页顶部的天气功能】
+第三方天气插件的使用【首页顶部的天气功能】【天气插件名称：MarsWeather】
 
 ## 安装使用
 - 克隆代码到本地
