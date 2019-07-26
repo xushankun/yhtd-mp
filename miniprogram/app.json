@@ -6,7 +6,8 @@
     "pages/mine/defriendList/defriendList",
     "pages/login/login",
     "pages/richText/richText",
-    "pages/mine/userList/userList"
+    "pages/mine/userList/userList",
+    "pages/aip/aip"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

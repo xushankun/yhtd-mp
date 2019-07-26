@@ -31,7 +31,6 @@ App({
 
       updateManager.onCheckForUpdate(function (res) {
         // 请求完新版本信息的回调
-        console.log(res.hasUpdate)
         if (!res.hasUpdate){
           console.log('当前已是最新版本')
         } else {

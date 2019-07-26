@@ -1,0 +1,79 @@
+/* miniprogram/pages/aip/aip.wxss */
+/* miniprogram/pages/index/release/release.wxss */
+
+page {
+    background: #f1f5f9;
+}
+
+.submit-info {
+    /* background: #2282e5; */
+    background:rgba(0, 180, 170,1);
+    color: #fff;
+    position: fixed;
+    width: calc(100% - 60rpx);
+    bottom: 100rpx;
+    left: 30rpx;
+}
+
+.upload-block {
+    padding: 0 28rpx;
+}
+
+.upload-block .upload-title {
+    padding: 35rpx 0;
+    display: flex;
+    align-items: baseline;
+    color: #404040;
+    font-size: 32rpx;
+}
+
+.upload-tips {
+    font-size: 24rpx;
+    margin-left: 4rpx;
+}
+
+.upload-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.upload-list .upload-img {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 20rpx 20rpx 20rpx 0;
+}
+
+.upload-list .upload-btn {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 20rpx 20rpx 20rpx 0;
+    background: #ebebeb;
+}
+
+.upload-list .upload-btn .plus-icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.justify-align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-hover {
+  background-color: red;
+}
+
+
+
+/* 结果列表 */
+.result-list {
+  margin-top: 20px;
+}
+.result-list .item-block{
+  min-height: 50px;
+  display: flex;
+  justify-content: space-between
+}

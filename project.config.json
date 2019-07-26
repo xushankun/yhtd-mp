@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -74,6 +74,13 @@
 					"id": -1,
 					"name": "测试",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "AI图片识别",
+					"pathName": "pages/aip/aip",
 					"scene": null
 				}
 			]

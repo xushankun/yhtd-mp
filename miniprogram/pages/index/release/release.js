@@ -88,7 +88,7 @@ Page({
       avatarUrl: _userInfo.avatarUrl,
       createTime: db.serverDate()
     }
-
+    _obj.content = _obj.content.trim()
     if (!_obj.content) {
       wx.showToast({
         title: '提交内容不能为空哦',
