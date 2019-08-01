@@ -1,5 +1,19 @@
 <!--miniprogram/pages/aip/aip.wxml-->
 <view class="release" wx:if="{{isRelease}}">
+  <view class="back-page" style='top:{{2 * statusBarH + 16}}rpx' catchtap='backPage'>
+    <icon class="iconfont icon-fanhui"></icon>
+  </view>
+  <view class="top-panel" style='height:{{2 * statusBarH + 100}}rpx'>
+    <view class="select-box" style='top:{{2 * statusBarH + 16}}rpx'>
+      <picker bindchange="bindPickerChange" value="{{typeIndex}}" range="{{objectArray}}" range-key="name">
+        <view class="picker">
+          {{objectArray[typeIndex].name}}
+        </view>
+      </picker>
+      <icon class="iconfont icon-jiantouarrow483"></icon>
+    </view>
+
+  </view>
   <form bindsubmit="onSubmit">
     <view class="upload-block mt10 bgff">
       <view class="upload-title">上传图片
@@ -13,14 +27,18 @@
       </view>
       <view class="result-list">
         <view class="item-block" wx:for="{{result}}" wx:key="{{index}}">
-          <view>{{index+1}}.{{item.keyword}}【{{item.root}}】</view>
-          <view>{{item.score}}</view>
+          <view>{{index+1}}.{{item.name || item.keyword}}
+            <block wx:if="{{item.root}}">
+              【{{item.root}}】
+            </block>
+          </view>
+          <view>{{item.score || item.probability}}</view>
         </view>
       </view>
     </view>
     <!-- 提交按钮 -->
     <button hover-class='hover-btn' disabled="{{disabled}}" class="main-submit-btn submit-info" formType="submit">
-    {{disabled ? '识别中' : '开始识别'}}
+      {{disabled ? '识别中' : '开始识别'}}
     </button>
   </form>
 </view>

@@ -77,3 +77,33 @@ page {
   display: flex;
   justify-content: space-between
 }
+
+/* 返回按钮 */
+.back-page {
+    position: absolute;
+    left: 30rpx;
+    /* top: 80rpx; */
+    /* top:13vw; */
+    z-index: 100;
+}
+
+.back-page .iconfont {
+    font-size: 50rpx;
+    color: #fff;
+}
+.top-panel {
+   background: #00b4aa;
+   height: 180rpx;
+}
+.select-box {
+   position: relative;
+   height: 50rpx;
+   display: flex;
+   align-items: baseline;
+   justify-content: center
+}
+.select-box .iconfont {
+  height: 38rpx;
+  font-size: inherit;
+  margin-left: 4rpx
+}

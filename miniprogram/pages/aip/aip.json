@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "AI图片识别",
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationStyle": "custom"
 }

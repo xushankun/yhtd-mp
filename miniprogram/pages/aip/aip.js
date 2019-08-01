@@ -4,6 +4,11 @@ const db = wx.cloud.database()
 const _ = db.command;
 Page({
   data: {
+    statusBarH: 20,
+    objectArray: [],
+    typeIndex: 0,
+
+
     imgList: [],
     disabled: false,
     isRelease: false,
@@ -20,7 +25,8 @@ Page({
       if (res.data.length) {
         this.setData({
           isRelease: res.data[0].isRelease,
-          baseUrl: res.data[0].baseUrl
+          baseUrl: res.data[0].baseUrl,
+          objectArray: res.data[0].aipType
         })
       } else {
         this.setData({
@@ -30,6 +36,13 @@ Page({
     })
   },
   onShow: function () {
+  },
+  // 选择
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      typeIndex: e.detail.value
+    })
   },
   onSubmit(e) {
     let _imgList = this.data.imgList;
@@ -116,13 +129,14 @@ Page({
   //-------------------------------上传并识别----------------------------------
   aip(filePath) {
     let _that = this
-    let _type = ''
+    // let _baseUrl = 'http://127.0.0.1:3001'
+    let _baseUrl = _that.data.baseUrl
     wx.uploadFile({
-      url: _that.data.baseUrl+'/baiduai/aip', //仅为示例，非真实的接口地址
+      url: _baseUrl + '/baiduai/aip' + '?type=' + _that.data.objectArray[_that.data.typeIndex - 0].type, 
       filePath: filePath,
       name: 'file',
       formData: {
-        'type': _type
+        'type': _that.data.objectArray[_that.data.typeIndex - 0].type
       },
       success(res) {
          //do something
@@ -138,6 +152,11 @@ Page({
           })
         }
       }
+    })
+  },
+  backPage() {
+    wx.navigateBack({
+      delta: 1
     })
   }
 })
