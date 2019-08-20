@@ -1,5 +1,6 @@
 <!--miniprogram/pages/mine/userList/userList.wxml-->
 <view class="list-block" wx:if="{{listData.length !== 0}}">
+  <view class="list-count">用户总数：<view class="num">{{listLength}}</view>，仅显示最近<view class="num">20</view>条</view>
     <view class="item-block plr30 border-bottom" wx:for="{{listData}}" wx:key="{{index}}">
         <view class="user-block">
             <image class='userImg mr10' src='{{item.avatarUrl}}'></image>

@@ -3,19 +3,18 @@
   <view class="back-page" style='top:{{2 * statusBarH + 16}}rpx' catchtap='backPage'>
     <icon class="iconfont icon-fanhui"></icon>
   </view>
-  <view class="top-panel" style='height:{{2 * statusBarH + 100}}rpx'>
+  <view class="top-panel {{imgList.length ? 'active':''}}" style='height:{{2 * statusBarH + 100}}rpx'>
     <view class="select-box" style='top:{{2 * statusBarH + 16}}rpx'>
       <picker bindchange="bindPickerChange" value="{{typeIndex}}" range="{{objectArray}}" range-key="name">
         <view class="picker">
-          {{objectArray[typeIndex].name}}
+          {{objectArray[typeIndex].name}} <icon class="iconfont icon-jiantouarrow483"></icon>
         </view>
       </picker>
-      <icon class="iconfont icon-jiantouarrow483"></icon>
     </view>
 
   </view>
-  <form bindsubmit="onSubmit">
-    <view class="upload-block mt10 bgff">
+  <view class="form-block {{imgList.length ? 'active':''}}">
+    <view class="upload-block mt10">
       <view class="upload-title">上传图片
         <view class="upload-tips">（长按图片删除）</view>
       </view>
@@ -37,8 +36,10 @@
       </view>
     </view>
     <!-- 提交按钮 -->
-    <button hover-class='hover-btn' disabled="{{disabled}}" class="main-submit-btn submit-info" formType="submit">
+    <button hover-class='hover-btn' disabled="{{disabled}}" class="main-submit-btn submit-info" catchtap="onSubmit">
       {{disabled ? '识别中' : '开始识别'}}
     </button>
-  </form>
+  </view>
+  <!-- 作为背景展示 -->
+  <image class="upload-img-bg" mode="aspectFill" wx:for="{{imgList}}" wx:key="{{index}}" src="{{item}}" data-index="{{index}}" data-curr-url="{{item}}" catchtap="chooseImage" catchlongpress="longpressImage"></image>
 </view>

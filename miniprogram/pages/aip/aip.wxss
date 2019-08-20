@@ -71,11 +71,21 @@ page {
 /* 结果列表 */
 .result-list {
   margin-top: 20px;
+  position: relative
 }
 .result-list .item-block{
   min-height: 50px;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  position: relative
+}
+.upload-img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1
 }
 
 /* 返回按钮 */
@@ -94,13 +104,28 @@ page {
 .top-panel {
    background: #00b4aa;
    height: 180rpx;
+   position: relative;
+    z-index: 10;
+}
+.top-panel.active {
+  background: rgba(0,0,0,.5)
+}
+.form-block.active {
+    background: rgba(0,0,0,.5);
+  position: relative;
+  z-index: 10;
+  color:#fff;
+}
+.form-block.active .upload-title {
+  color: #fff
 }
 .select-box {
    position: relative;
    height: 50rpx;
    display: flex;
-   align-items: baseline;
-   justify-content: center
+   align-items: center;
+   justify-content: center;
+   color: #fff
 }
 .select-box .iconfont {
   height: 38rpx;

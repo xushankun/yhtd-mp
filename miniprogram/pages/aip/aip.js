@@ -43,6 +43,7 @@ Page({
     this.setData({
       typeIndex: e.detail.value
     })
+    this.onSubmit()
   },
   onSubmit(e) {
     let _imgList = this.data.imgList;
@@ -74,6 +75,7 @@ Page({
         _this.setData({
           imgList: _imgList
         })
+        _this.onSubmit()
       })
     }
   },
@@ -147,6 +149,16 @@ Page({
         res = JSON.parse(res.data)
         console.log(res)
         if (res.success) {
+          if (res.data.result.length) {
+            res.data.result.map(item=>{
+              if (item.score) {
+                item.score = ((item.score - 0) * 100).toFixed(2) + '%'
+              }
+              if (item.probability) {
+                item.probability = ((item.probability-0) * 100).toFixed(2) + '%'
+              }
+            })
+          }
           _that.setData({
             result:res.data.result
           })

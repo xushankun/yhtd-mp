@@ -5,7 +5,18 @@ page {
 .list-block {
     box-sizing: border-box;
 }
-
+.list-count {
+  height: 80rpx;
+  background: #fffbe8;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx
+}
+.list-count .num {
+  color:red;
+  font-weight:700;
+}
 .item-block {
     display: flex;
     align-items: center;
@@ -29,6 +40,12 @@ page {
     width: 60rpx;
     height: 60rpx;
     border-radius: 50%;
+}
+.item-block .nickname {
+  max-width: 240rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 
