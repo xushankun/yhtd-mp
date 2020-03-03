@@ -1,7 +1,7 @@
 ## 相关bolg笔记
 - [小程序云开发](https://shankun.top/2019/04/12/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/)扫码体验：
 
-![二维码](https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/mpcloud/yhtd-vcode.jpg)
+![](https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/mpcloud/yhtd-vcode.jpg)
 
 ## 微信小程序云开发【硬核天地】
 
@@ -33,7 +33,7 @@ git clone git@github.com:xushankun/yhtd-mp.git
         "isRelease":true  // 发布状态时改为false【规避微信审核，投机取巧】【原则上个人开发者禁止用户发布信息】
     users【用户列表】
 ```
-![示例图](https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/mpcloud/mpcloud23.png)
+
 
 ## 关于权限
 - 数据库表的权限设置：首先将以上几个表权限设为：所有用户可读，仅创建者及管理员可写。
