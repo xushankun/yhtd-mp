@@ -17,6 +17,7 @@ Page({
         searchLoading: true,
         searchLoadingComplete: false,
 
+        isAI:false,
         isRelease: false,
         isRefreshStatus: true,
         // 权限默认普通用户0，管理员1 ，拉黑用户为2
@@ -150,10 +151,12 @@ Page({
         db.collection('services').get().then(res => {
             if (res.data.length) {
                 this.setData({
+                  isAI: res.data[0].isAI,
                     isRelease: res.data[0].isRelease
                 })
             } else {
                 this.setData({
+                  isAI:false,
                     isRelease: false
                 })
             }

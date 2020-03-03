@@ -58,5 +58,5 @@
     </view>
     <!-- copyright -->
     <view style='padding-bottom:160rpx'></view>
-    <view class="copyright">copyright @ 2019 </view>
+    <view class="copyright">@ {{currYear}} shankun.top</view>
 </view>

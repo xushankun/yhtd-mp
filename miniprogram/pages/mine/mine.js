@@ -7,6 +7,7 @@ Page({
         isLogin: false,
         userInfo: null,
         statusBarH:20,
+        currYear: null,
         html:`  <section data-id="94534" style="border: 0px none;">
     <section style="width:95%;margin:20px auto;" data-width="95%">
       <section style="box-shadow: 0px 2px 10px #a9cfd5;">
@@ -52,6 +53,10 @@ Page({
             statusBarH: res.statusBarHeight
           })
         }
+      })
+      // 年份
+      this.setData({
+        currYear: new Date().getFullYear()
       })
     },
     onShow: function() {

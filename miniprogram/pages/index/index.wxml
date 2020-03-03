@@ -56,7 +56,7 @@
     </view>
 
 
-    <navigator url="../aip/aip" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
+    <navigator url="../aip/aip" hover-class="other-navigator-hover" wx:if="{{isAI && isRelease}}">
         <view class="release-btn" style='bottom:266rpx;'>
             <icon class="iconfont icon-AI"></icon>
         </view>
