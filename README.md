@@ -33,7 +33,7 @@ git clone git@github.com:xushankun/yhtd-mp.git
         "isRelease":true  // 发布状态时改为false【规避微信审核，投机取巧】【原则上个人开发者禁止用户发布信息】
     users【用户列表】
 ```
-
+![](https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/mpcloud/mpcloud23.png)
 
 ## 关于权限
 - 数据库表的权限设置：首先将以上几个表权限设为：所有用户可读，仅创建者及管理员可写。
