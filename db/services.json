@@ -1,0 +1,13 @@
+{
+  "_id":"XGy7R3kPDdDCJ5pU",
+  "isRelease":true,
+  "baseUrl":"https://xxx/",
+  "aipType":[
+    {"name":"通用物体识别",
+      "type":"advancedGeneral"
+    },{
+      "name":"动物识别",
+      "type":"animalDetect"
+    },{
+      "name":"植物识别",
+      "type":"plantDetect"},{"type":"carDetect","name":"车辆识别"},{"name":"logo商标识别","type":"logoSearch"}],"isAI":true}

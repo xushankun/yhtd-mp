@@ -1,0 +1,13 @@
+{
+  "_id":"00a6cea35dc29189026895186823d86f",
+  "city":"Shenzhen",
+  "country":"China",
+  "avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJvhgdWSJiaf44iaRCnQkF8IxRYIEGGSueqfBYv6Q6fpKSYGvmLMZma8mvCm4J3YIibGic9haicJy4JytA/132",
+  "nickName":"佚名无",
+  "gender":1.0,
+  "_openid":"oYHAN0Qed6eVyCVeXa6STJ3s-WVg",
+  "createTime":{"$date":"2019-11-06T09:25:29.880Z"},
+  "language":"zh_CN",
+  "auth":0.0,
+  "province":"Guangdong"
+}
