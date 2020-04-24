@@ -13,7 +13,7 @@
     </view>
     <!-- 列表 -->
     <view class="list-block w100" wx:if="{{!isRefreshStatus}}">
-        <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="{{index}}">
+        <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="index">
             <image class='userImg mr10' src='{{item.avatarUrl}}'></image>
             <view class="item-right">
                 <view class="username">{{item.nickName || '路人甲'}}</view>
@@ -21,9 +21,9 @@
                     <displayPartText lineNumber="2" textLineHeight="44" showBtnText="全文" hideBtnText="收起">{{item.content}}</displayPartText>
                 </view>
                 <view class='img-block'>
-                    <image wx:if="{{item.image.length === 1 ? true : false}}" class='img1' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="{{_index}}" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}"
+                    <image wx:if="{{item.image.length === 1 ? true : false}}" class='img1' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="index" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}"
                         src='{{_item || ""}}' catchtap="previewImage"></image>
-                    <image wx:if="{{item.image.length !== 1 ? true : false}}" class='img' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="{{_index}}" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}"
+                    <image wx:if="{{item.image.length !== 1 ? true : false}}" class='img' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="index" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}"
                         src='{{_item || ""}}' catchtap="previewImage"></image>
                 </view>
                 <view class="item-footer">
@@ -55,10 +55,14 @@
         <text></text>
     </view>
 
-
+    <navigator url="../composeImg/composeImg" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
+        <view class="release-btn" style='bottom:370rpx;'>
+            <icon class="iconfont icon-pintu"></icon>
+        </view>
+    </navigator>
     <navigator url="../aip/aip" hover-class="other-navigator-hover" wx:if="{{isAI && isRelease}}">
         <view class="release-btn" style='bottom:266rpx;'>
-            <icon class="iconfont icon-AI"></icon>
+            <icon class="iconfont icon-txsb"></icon>
         </view>
     </navigator>
     <navigator url="release/release" hover-class="other-navigator-hover" wx:if="{{isRelease}}">

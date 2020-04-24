@@ -1,0 +1,39 @@
+<!--miniprogram/pages/composeImg/composeImg.wxml-->
+<!--相框-->
+<import src="../../template/template.wxml"/>
+<!-- loading -->
+<template is="loadSmall" data="{{isLoadSmallStatus}}"></template>
+<view catchtouchmove="true" class="container">
+  <block wx:if="{{!photoSrc}}">
+    <block wx:if="{{imageSrc}}">
+      <image style="width:100%;height:auto;" mode="widthFix" src="{{imageSrc}}"></image>
+    </block>
+    <block wx:else>
+      <button class="impowerBtn" bindgetuserinfo="getUserInfo"  open-type="getUserInfo"></button>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="photoframe" style="height:{{frameHeight}}px" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd">
+      <image class="frame" src="{{frameSrc}}" mode="widthFix"></image>
+      <image class="photo" src="{{photoSrc}}" style="width:{{photoWidth}}px;height:{{photoHeight}}px;top:{{photoTop}}px;left:{{photoLeft}}px" disable-scroll="true"></image>
+    </view>
+  </block>
+  <view class="fixedBottom">
+    <view class="filterTitle">
+      <text class="active">{{highAttr[currIndex].name}}</text>
+    </view>
+    <scroll-view class="scrollView" scroll-x="true">
+      <view wx:for="{{highAttr}}" wx:key="idx" data-index="{{index}}" data-src="{{item.natural_config}}" class="imgList" bindtap='onImageClicked'>
+        <view class="{{index === currIndex ? 'active' : ''}}">
+          <image src="{{item.cover}}" mode="widthFix"></image>
+        </view>
+      </view>
+    </scroll-view> 
+    <view class='divLiButton'>
+      <button bindtap="onUpdateImgClicked" hover-class='opacity5'>更改头像</button>
+      <button hover-class='opacity5' bindtap="{{isShowNum==0?'savePic':'saveImgToPhone'}}">保存图片</button>
+    </view> 
+  </view>
+</view>
+<canvas canvas-id="teCanvas" style="position:fixed;top:-9999px;left:-9999px;width:750rpx;height:{{totalHeight}}px;"></canvas>
+<canvas canvas-id="myCanvas" style="position:fixed;top:-9999px;left:-9999px;width:100%;height:{{imgHeight}}px;" ></canvas>

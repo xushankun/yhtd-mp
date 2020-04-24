@@ -185,11 +185,97 @@ let throttle = (func, wait, options) => {
 };
 // ------------------------------------------节流end-------------------------------------
 
+//保存图片到相册
+function savePicToAlbum(tempFilePath) {
+  wx.showLoading({
+    title: '请稍后...',
+    duration: 200000
+  })
+  if (!wx.saveImageToPhotosAlbum) {
+    wx.hideLoading();
+    wx.showModal({
+      title: '提示',
+      content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+    })
+    return;
+  }
+  wx.getSetting({
+    success(res) {
+      wx.showLoading({
+        title: '请稍后...',
+        duration: 200000
+      })
+      if (!res.authSetting['scope.writePhotosAlbum']) {
+        console.log("没有授权《保存图片》权限")
+        wx.authorize({
+          scope: 'scope.writePhotosAlbum',
+          success() {
+            console.log("授权《保存图片》权限成功")
+            saveImageToPhotos(tempFilePath);
+          },
+          fail() {
+            console.log("授权《保存图片》权限失败")
+            wx.showModal({
+              title: '提示',
+              content: '请打开写入相册权限~',
+              success: function () {
+                wx.hideLoading();
+                wx.openSetting({
+                  success: function (res) {
+                    if (res.authSetting['scope.writePhotosAlbum']) {
+                      saveImageToPhotos(tempFilePath);
+                    }
+                  },
+                  fail: function (res) {
+                    wx.showToast({
+                      icon: 'none',
+                      title: '打开设置失败,请重新设置',
+                    });
+                  }
+                })
+              }
+            })
+          }
+        })
+      } else {
+        console.log("已经授权《保存图片》权限")
+        saveImageToPhotos(tempFilePath);
+      }
+    }
+  })
+}
+
+//保存图片
+function saveImageToPhotos(tempFilePath) {
+  wx.saveImageToPhotosAlbum({
+    filePath: tempFilePath,
+    success(res) {
+      wx.hideLoading();
+      wx.vibrateShort();
+      wx.showToast({
+        title: '保存成功',
+        duration: 3000
+      });
+    },
+    fail(err) {
+      wx.hideLoading();
+      console.log("失败原因：", err)
+      wx.showToast({
+        icon: 'none',
+        title: '保存失败'
+      });
+    }
+  })
+}
+
+
+
 module.exports = {
   formatDate,
   timeDiff,
   showSuccess,
   showInfo,
   debounce,
-  throttle
+  throttle,
+  savePicToAlbum
 }

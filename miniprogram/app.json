@@ -7,7 +7,8 @@
     "pages/login/login",
     "pages/richText/richText",
     "pages/mine/userList/userList",
-    "pages/aip/aip"
+    "pages/aip/aip",
+    "pages/composeImg/composeImg"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

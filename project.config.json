@@ -32,6 +32,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 6,
 			"list": [
@@ -81,6 +85,13 @@
 					"id": -1,
 					"name": "AI图片识别",
 					"pathName": "pages/aip/aip",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "头像合成",
+					"pathName": "pages/composeImg/composeImg",
 					"scene": null
 				}
 			]
