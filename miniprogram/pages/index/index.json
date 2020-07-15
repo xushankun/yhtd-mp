@@ -6,7 +6,6 @@
   "navigationStyle": "custom",
   "onReachBottomDistance": 200,
   "usingComponents": {
-    "displayPartText": "../components/display-part-text/display-part-text",
-    "weather": "plugin://weather/weather"
+    "displayPartText": "../components/display-part-text/display-part-text"
   }
 }

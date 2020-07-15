@@ -2,14 +2,11 @@
 <view class="index w100">
     <view class="header-block pr">
         <image class="banner" src='../../images/common/index-bg.jpg' mode="aspectFill"></image>
-        <!-- 天气 -->
-        <weather size="sm" theme="light" wx:if="{{isRelease}}" />
         <view class="mine-btn-block {{isHeader ? 'active' : ''}}">
             <image class="banner" src='../../images/common/index-bg.jpg' mode="aspectFill"></image>
             <navigator class="mine-btn" url="../mine/mine">我的空间</navigator>
             <input class="search-input" placeholder-class="search-input-place" bindinput="bindKeyInput" placeholder="输入关键词" wx:if="{{false}}" />
         </view>
-
     </view>
     <!-- 列表 -->
     <view class="list-block w100" wx:if="{{!isRefreshStatus}}">

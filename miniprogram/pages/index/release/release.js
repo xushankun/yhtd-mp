@@ -106,11 +106,11 @@ Page({
             title: '操作成功',
             duration: 500
           })
-          _that.setData({
-            disabled: false
-          })
           app.prevPage().onGetOpenid();
           setTimeout(() => {
+            _that.setData({
+              disabled: false
+            })
             wx.navigateBack({
               delta: 1
             })
@@ -170,7 +170,8 @@ Page({
         cloudPath: cloudPath,
         filePath: item,
       }).then(res => {
-        if (res.statusCode === 200) {
+        console.log(res)
+        if (res.fileID) {
           _imgListed.push(res.fileID);
           // 所有图片上传结束
           if (_imgList.length === _imgListed.length) {

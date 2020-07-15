@@ -16,6 +16,7 @@
 	"libVersion": "2.6.4",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -50,13 +51,6 @@
 					"id": -1,
 					"name": "黑名单",
 					"pathName": "pages/mine/defriendList/defriendList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "天气",
-					"pathName": "pages/weather/weather",
 					"query": "",
 					"scene": null
 				},

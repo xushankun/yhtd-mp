@@ -42,7 +42,7 @@
   box-sizing: border-box;
 }
 .imgList>view.active{
-  border: 4rpx solid red
+  /* border: 4rpx solid red */
 }
 .imgList image{
   display: block;

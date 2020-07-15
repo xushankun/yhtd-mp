@@ -17,16 +17,5 @@
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
   },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "当前只用于获取实时天气"
-    }
-  },
-  "plugins": {
-    "weather": {
-      "version": "1.1.0",
-      "provider": "wx6578a11b90205be3"
-    }
-  },
   "sitemapLocation": "sitemap.json"
 }
