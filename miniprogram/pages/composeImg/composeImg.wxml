@@ -1,16 +1,11 @@
 <!--miniprogram/pages/composeImg/composeImg.wxml-->
 <!--相框-->
-<import src="../../template/template.wxml"/>
+<import src="../../template/template.wxml" />
 <!-- loading -->
 <template is="loadSmall" data="{{isLoadSmallStatus}}"></template>
 <view catchtouchmove="true" class="container">
   <block wx:if="{{!photoSrc}}">
-    <block wx:if="{{imageSrc}}">
-      <image style="width:100%;height:auto;" mode="widthFix" src="{{imageSrc}}"></image>
-    </block>
-    <block wx:else>
-      <button class="impowerBtn" bindgetuserinfo="getUserInfo"  open-type="getUserInfo"></button>
-    </block>
+    <button class="impowerBtn" bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取头像</button>
   </block>
   <block wx:else>
     <view class="photoframe" style="height:{{frameHeight}}px" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd">
@@ -28,12 +23,12 @@
           <image src="{{item.cover}}" mode="widthFix"></image>
         </view>
       </view>
-    </scroll-view> 
+    </scroll-view>
     <view class='divLiButton'>
-      <button bindtap="onUpdateImgClicked" hover-class='opacity5'>更改头像</button>
-      <button hover-class='opacity5' bindtap="{{isShowNum==0?'savePic':'saveImgToPhone'}}">保存图片</button>
-    </view> 
+      <button type="primary" bindtap="onUpdateImgClicked">上传图片</button>
+      <button type="primary" plain  bindtap="{{isShowNum==0?'savePic':'saveImgToPhone'}}">合成并保存图片</button>
+    </view>
   </view>
 </view>
 <canvas canvas-id="teCanvas" style="position:fixed;top:-9999px;left:-9999px;width:750rpx;height:{{totalHeight}}px;"></canvas>
-<canvas canvas-id="myCanvas" style="position:fixed;top:-9999px;left:-9999px;width:100%;height:{{imgHeight}}px;" ></canvas>
+<canvas canvas-id="myCanvas" style="position:fixed;top:-9999px;left:-9999px;width:100%;height:{{imgHeight}}px;"></canvas>

@@ -14,7 +14,7 @@ Page({
   data: {
     deviceRatio: windowWidth / 750,
     imgViewHeight: windowHeight - 160 * (windowWidth / 750),
-    imageSrc: '',
+    photoSrc:'',
     currIndex: 0
   },
 
@@ -26,16 +26,12 @@ Page({
     that.getRahMenType();
     that.getUserInfo();
   },
-  /**
-   * 获取头像
-   */
+  // 获取头像
   getUserInfo: function (e) {
     const that = this;
-    if (e && e.detail.userInfo) {
-      that.setData({
-        imageSrc: e.detail.userInfo.avatarUrl.split("/132")[0] + '/0'
-      })
-      that.getUpdateImageInFo(that.data.imageSrc);
+    if (e && e.detail.userInfo) {  
+      console.log(e.detail.userInfo.avatarUrl.split("/132")[0] + '/0')
+      that.getUpdateImageInFo(e.detail.userInfo.avatarUrl.split("/132")[0] + '/0');
     } else {
       wx.getSetting({
         success(res) {
@@ -43,10 +39,7 @@ Page({
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称
             wx.getUserInfo({
               success: function (res) {
-                that.setData({
-                  imageSrc: res.userInfo.avatarUrl.split("/132")[0] + '/0'
-                })
-                that.getUpdateImageInFo(that.data.imageSrc);
+                that.getUpdateImageInFo(res.userInfo.avatarUrl.split("/132")[0] + '/0');
               }
             })
           }
@@ -75,6 +68,7 @@ Page({
     const that = this;
     const url = e.currentTarget.dataset.src;
     let _idx = e.currentTarget.dataset.index
+
     if (!that.data.photoSrc) {
       wx.showToast({
         title: '请上传图片~',
@@ -143,8 +137,7 @@ Page({
         that.setData({
           imgWidth: screenWidth,
           imgHeight: height,
-          photoSrc: e.path,
-          imgUrl: e.path
+          photoSrc: e.path
         })
 
         that.frameHeight = that.frameHeight ? that.frameHeight : 1000 * that.data.deviceRatio;
@@ -170,6 +163,12 @@ Page({
           // photoTop: that.startY,
           // photoLeft: that.startX,
           frameHeight: that.frameHeight,
+        })
+      },
+      fail: (err)=>{
+        wx.showToast({
+          title: '图片加载失败,请自行上传图片',
+          icon: "none"
         })
       }
     })
@@ -224,7 +223,7 @@ Page({
     wx.showLoading({
       title: '保存中',
     })
-    util.savePicToAlbum(that.data.imageSrc, that);
+    util.savePicToAlbum(that.data.photoSrc, that);
   },
   saveImgToPhone() {
     const that = this;
@@ -271,16 +270,6 @@ Page({
         })
       }, 600)
     })
-  },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function (options) {
-    const that = this;
-    return {
-      title: "一起更改头像,为武汉加油祈福",
-      path: '/pages/rahmen/rahmen'
-    }
   }
 })
 
