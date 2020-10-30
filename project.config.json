@@ -1,102 +1,115 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"uglifyFileName": true
-	},
-	"appid": "wxb049beb3fea30b12",
-	"projectname": "yhtd-mp",
-	"libVersion": "2.6.4",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 6,
-			"list": [
-				{
-					"id": 0,
-					"name": "我的",
-					"pathName": "pages/mine/mine",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "黑名单",
-					"pathName": "pages/mine/defriendList/defriendList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "富文本",
-					"pathName": "pages/richText/richText",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "用户列表",
-					"pathName": "pages/mine/userList/userList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "测试",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "AI图片识别",
-					"pathName": "pages/aip/aip",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "头像合成",
-					"pathName": "pages/composeImg/composeImg",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "appid": "wxb049beb3fea30b12",
+  "projectname": "yhtd-mp",
+  "libVersion": "2.13.2",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "我的",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "黑名单",
+          "pathName": "pages/mine/defriendList/defriendList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "富文本",
+          "pathName": "pages/richText/richText",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "用户列表",
+          "pathName": "pages/mine/userList/userList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "测试",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "AI图片识别",
+          "pathName": "pages/aip/aip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "头像合成",
+          "pathName": "pages/composeImg/composeImg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

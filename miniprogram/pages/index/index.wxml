@@ -18,9 +18,9 @@
                     <displayPartText lineNumber="2" textLineHeight="44" showBtnText="全文" hideBtnText="收起">{{item.content}}</displayPartText>
                 </view>
                 <view class='img-block' wx:if="{{isRelease}}">
-                    <image wx:if="{{item.image.length === 1 ? true : false}}" class='img1' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="index" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}"
+                    <image wx:if="{{item.image.length === 1 ? true : false}}" class='img1' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="index" data-index="{{index}}" data-curr-url="{{_item}}"
                         src='{{_item || ""}}' catchtap="previewImage"></image>
-                    <image wx:if="{{item.image.length !== 1 ? true : false}}" class='img' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="index" data-index="{{index}}" data-imgIndex="{{_index}}" data-curr-url="{{_item}}"
+                    <image wx:if="{{item.image.length !== 1 ? true : false}}" class='img' lazy-load="{{true}}" mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index" wx:key="index" data-index="{{index}}" data-curr-url="{{_item}}"
                         src='{{_item || ""}}' catchtap="previewImage"></image>
                 </view>
                 <view class="item-footer">

@@ -1,0 +1,115 @@
+/*
+此文件为开发者工具生成，生成时间: 2020/10/30 上午10:48:11 
+
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\mine\userList\userList.wxss 中引入样式
+```
+@import "./userList.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+*/
+.sk-transparent {
+    color: transparent !important;
+  }
+.sk-text-14-2857-102 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text {
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+    background-color: transparent !important;
+    color: transparent !important;
+    background-repeat: repeat-y !important;
+  }
+.sk-text-14-2857-796 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-685 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-591 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-268 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-475 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-644 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-696 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-989 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-555 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-84 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-706 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-text-14-2857-407 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 38.0435rpx;
+    position: relative !important;
+  }
+.sk-button {
+    color: #EFEFEF !important;
+    background: #EFEFEF !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+.sk-image {
+    background: #EFEFEF !important;
+  }
+.sk-pseudo::before, .sk-pseudo::after {
+      background: #EFEFEF !important;
+      background-image: none !important;
+      color: transparent !important;
+      border-color: transparent !important;
+    }
+.sk-pseudo-rect::before, .sk-pseudo-rect::after {
+      border-radius: 0 !important;
+    }
+.sk-pseudo-circle::before, .sk-pseudo-circle::after {
+      border-radius: 50% !important;
+    }
+.sk-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+  }

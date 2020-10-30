@@ -38,7 +38,7 @@ Page({
         let _that = this;
         db.collection('users').where({
             _openid: openid
-        }).get().then(res => {
+        }).limit(1).get().then(res => {
             if (res.data.length > 0) {
                 console.log('用户已存在')
                 _that.handleUserInfo(res);
@@ -79,7 +79,7 @@ Page({
         }).then(res => {
             db.collection('users').where({
                 _id: res._id
-            }).get({
+            }).limit(1).get({
                 success: res => {
                     console.log('新增用户成功:', res)
                     _that.handleUserInfo(res);

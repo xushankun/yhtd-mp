@@ -1,0 +1,80 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/10/30 上午10:47:17 
+使用方法：
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\index\index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\index\index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="index w100">
+      <view class="header-block pr sk-pseudo sk-pseudo-circle">
+        <image class="banner sk-image" mode="aspectFill"></image>
+        <view class="mine-btn-block">
+          <image class="banner sk-image" mode="aspectFill"></image>
+          <navigator class="mine-btn sk-transparent sk-text-14-2857-49 sk-text" style="text-decoration-color: transparent;">我的空间</navigator>
+        </view>
+      </view>
+      <view class="list-block w100">
+        <view class="item-block border-bottom bgff" style="border: none;">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="item-right">
+            <view class="username sk-transparent sk-text-14-2857-822 sk-text">玊尔</view>
+            <view class="item-text">
+              <view is="pages/components/display-part-text/display-part-text">
+                <view class="text--ctrl-show-text sk-transparent" style="max-height:72px;line-height:24px">666
+                  <view class="text--show-all-cont text--rightBottom sk-transparent sk-text-18-7500-554 sk-text" style="top:48px;height:24px;line-height:24px">全文</view>
+                </view>
+              </view>
+            </view>
+            <view class="img-block">
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ZwVYlBaSKs8vKTR5X8w7qQ-q160354544207226828/1.jpg" data-imgindex="0" data-index="0" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ZwVYlBaSKs8vKTR5X8w7qQ-q160354544207226828/0.jpg" data-imgindex="1" data-index="0" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ZwVYlBaSKs8vKTR5X8w7qQ-q160354544207226828/2.jpg" data-imgindex="2" data-index="0" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ZwVYlBaSKs8vKTR5X8w7qQ-q160354544207226828/3.jpg" data-imgindex="3" data-index="0" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ZwVYlBaSKs8vKTR5X8w7qQ-q160354544207226828/5.jpg" data-imgindex="4" data-index="0" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ZwVYlBaSKs8vKTR5X8w7qQ-q160354544207226828/4.jpg" data-imgindex="5" data-index="0" lazy-load="true" mode="aspectFill"></image>
+            </view>
+            <view class="item-footer">
+              <view class="item-time plr30 sk-transparent sk-text-14-2857-954 sk-text">5天前</view>
+            </view>
+          </view>
+        </view>
+        <view class="item-block border-bottom bgff" style="border: none;">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="item-right">
+            <view class="username sk-transparent sk-text-14-2857-116 sk-text">欢乐马</view>
+            <view class="item-text">
+              <view is="pages/components/display-part-text/display-part-text">
+                <view class="text--ctrl-show-text sk-transparent" style="max-height:72px;line-height:24px">试试多图效果，
+                  <view class="text--show-all-cont text--rightBottom sk-transparent sk-text-18-7500-75 sk-text" style="top:48px;height:24px;line-height:24px">全文</view>
+                </view>
+              </view>
+            </view>
+            <view class="img-block">
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ckWC7JA56sCFgSu1WjBNbo-t160274495819958122/0.jpg" data-imgindex="0" data-index="1" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ckWC7JA56sCFgSu1WjBNbo-t160274495819958122/2.jpg" data-imgindex="1" data-index="1" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ckWC7JA56sCFgSu1WjBNbo-t160274495819958122/1.jpg" data-imgindex="2" data-index="1" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ckWC7JA56sCFgSu1WjBNbo-t160274495819958122/3.jpg" data-imgindex="3" data-index="1" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ckWC7JA56sCFgSu1WjBNbo-t160274495819958122/5.jpg" data-imgindex="4" data-index="1" lazy-load="true" mode="aspectFill"></image>
+              <image class="img sk-image" data-curr-url="cloud://shankun-r-7ee811.7368-shankun-r-7ee811-1254163049/kklist/oYHAN0ckWC7JA56sCFgSu1WjBNbo-t160274495819958122/6.jpg" data-imgindex="5" data-index="1" lazy-load="true" mode="aspectFill"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="back-top">
+        <icon class="iconfont icon-icon_refresh sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+      </view>
+    </view>
+  </view>
+</template>

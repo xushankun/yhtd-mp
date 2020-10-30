@@ -1,0 +1,125 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/10/30 上午10:48:11 
+使用方法：
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\mine\userList\userList.wxml 引入模板
+
+```
+<import src="userList.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\mine\userList\userList.wxss 中引入样式
+```
+@import "./userList.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="list-block">
+      <view class="list-count sk-transparent">用户总数：
+        <view class="num sk-transparent sk-text-14-2857-102 sk-text">224</view>，仅显示最近
+        <view class="num sk-transparent sk-text-14-2857-796 sk-text">20</view>条</view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-685 sk-text">拥有你就拥有全世界</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0W1K0h2reFp14tmg4CENnPM">20-10-27 16:43
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0W1K0h2reFp14tmg4CENnPM">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-591 sk-text">Kun.X</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0QmAUHA-pbKK93LyN22eoGM">20-10-21 12:30
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0QmAUHA-pbKK93LyN22eoGM">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-268 sk-text">伍叶春</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0QZ9YSNOmkWWiZ1ddx7W8eQ">20-10-19 10:36
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0QZ9YSNOmkWWiZ1ddx7W8eQ">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-475 sk-text">欢乐马</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0ckWC7JA56sCFgSu1WjBNbo">20-10-15 14:51
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0ckWC7JA56sCFgSu1WjBNbo">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-644 sk-text">远帆</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0Sxn5gCoCraeNcotx2vTSiA">20-10-12 13:29
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0Sxn5gCoCraeNcotx2vTSiA">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-696 sk-text">是佳佳啊</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0cFEgNi_qHb0clgiXoY53zE">20-10-06 13:12
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0cFEgNi_qHb0clgiXoY53zE">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-989 sk-text">远方</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0QPPQO4gn55qJ3HC-SvyONo">20-09-27 16:33
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0QPPQO4gn55qJ3HC-SvyONo">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-555 sk-text">🔥Wasabi</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0ZJ14nLveBN3CDC8agxyuvA">20-09-25 10:00
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0ZJ14nLveBN3CDC8agxyuvA">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-84 sk-text">jack</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0fnnfkD39uM1OPxmCakJ5hY">20-09-21 10:47
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0fnnfkD39uM1OPxmCakJ5hY">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-706 sk-text">力</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0cJ21FB32Fv9WE8sr5qkubQ">20-09-07 12:29
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0cJ21FB32Fv9WE8sr5qkubQ">拉黑</button>
+        </view>
+      </view>
+      <view class="item-block plr30 border-bottom" style="border: none;">
+        <view class="user-block">
+          <image class="userImg mr10 sk-image"></image>
+          <view class="nickname sk-transparent sk-text-14-2857-407 sk-text">momo</view>
+        </view>
+        <view class="create-time sk-transparent" data-openid="oYHAN0ezNSOEL8kq2Plwbc5mnnlI">20-09-04 13:09
+          <button class="cancel-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-openid="oYHAN0ezNSOEL8kq2Plwbc5mnnlI">拉黑</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

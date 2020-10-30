@@ -1,0 +1,66 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/10/30 上午10:47:34 
+使用方法：
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\mine\mine.wxml 引入模板
+
+```
+<import src="mine.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\mine\mine.wxss 中引入样式
+```
+@import "./mine.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="mine">
+      <view class="head-block pr sk-pseudo sk-pseudo-circle">
+        <view class="back-page" style="top:30px">
+          <icon class="iconfont icon-fanhui sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+        </view>
+        <image class="main-bg sk-image" mode="aspectFill"></image>
+        <button class="userInfo-btn sk-button sk-pseudo sk-pseudo-circle">
+          <image class="avatar sk-image"></image>
+          <text class="username active sk-transparent sk-text-14-2857-578 sk-text" style="background-position-x: 50%;">shanKun</text>
+        </button>
+      </view>
+      <view>
+        <view is="Parser/index">
+          <scroll-view scroll-x="true" scroll-y="true">
+            <rich-text nodes="[{&quot;text&quot;:&quot;  &quot;,&quot;type&quot;:&quot;text&quot;}]" space="false"></rich-text>
+          </scroll-view>
+          <scroll-view scroll-x="true" scroll-y="true">
+            <rich-text nodes="[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;data-id&quot;:&quot;94534&quot;,&quot;style&quot;:&quot;border: 0px none;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:95%;margin:20px auto;&quot;,&quot;data-width&quot;:&quot;95%&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;box-shadow: 0px 2px 10px #a9cfd5;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;display: flex;justify-content: space-between;align-items: center;padding: 10px 5px;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;display: inline-block;width: 25px;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:0.8em;height:0.8em;background: #85b5bc;border-radius:100% ;opacity: 0.6;margin: 0px auto -8px auto;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;},&quot;children&quot;:[]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:5px;height:1.4em;background:#a9cfd5;border-radius:6px ;margin: 0px auto;&quot;},&quot;children&quot;:[]}]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;display: inline-block;width: 25px;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:0.8em;height:0.8em;background: #85b5bc;border-radius:100% ;opacity: 0.6;margin: 0px auto -8px auto;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;},&quot;children&quot;:[]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:5px;height:1.4em;background:#a9cfd5;border-radius:6px ;margin: 0px auto;&quot;},&quot;children&quot;:[]}]}]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;padding:0.2em 1em;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;data-autoskip&quot;:&quot;1&quot;,&quot;style&quot;:&quot;font-size: 14px;text-align: justify;letter-spacing: 1.5px;line-height: 1.75em;color:#4d909a;padding:0em 1em;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;p&quot;,&quot;attrs&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot; 硬核，作为网络流行语的该词，原本的含义为形容说唱音乐和游戏。因此早有硬核说唱和硬核游戏的说法。硬核说唱是更具有力量感的音乐形式，热情奔放猛烈强劲。而硬核游戏存在一定难度并有特定受众的游戏。但是作为网络语而流行起来的“硬核”这个词使用的范围更加广泛，不单单形容说唱和游戏，我们可以把它理解为是一种很厉害、很酷、很彪悍、很刚硬的意思。\n            &quot;,&quot;type&quot;:&quot;text&quot;}]}]}]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;display: flex;justify-content: space-between;align-items: center;padding: 10px 5px;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;display: inline-block;width: 25px;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:5px;height:1.4em;background:#a9cfd5;border-radius:6px ;margin: 0px auto;&quot;},&quot;children&quot;:[]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:0.8em;height:0.8em;background: #85b5bc;border-radius:100% ;opacity: 0.6;margin: -8px auto 0px auto;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;},&quot;children&quot;:[]}]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;display: inline-block;width: 25px;&quot;},&quot;children&quot;:[{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:5px;height:1.4em;background:#a9cfd5;border-radius:6px ;margin: 0px auto;&quot;},&quot;children&quot;:[]},{&quot;name&quot;:&quot;div&quot;,&quot;attrs&quot;:{&quot;style&quot;:&quot;width:0.8em;height:0.8em;background: #85b5bc;border-radius:100% ;opacity: 0.6;margin:-8px  auto 0px auto;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;},&quot;children&quot;:[]}]}]}]}]}]}]"
+              space="false"></rich-text>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="action-list border-top border-bottom w100" style="border: none;">
+        <view class="action-item">
+          <view class="item-content">
+            <text class="item-title sk-transparent sk-text-14-2857-725 sk-text">所有用户</text>
+            <icon class="iconfont icon-jinruyou sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+          </view>
+        </view>
+        <view class="action-item border-top" style="border: none;">
+          <view class="item-content">
+            <text class="item-title sk-transparent sk-text-14-2857-919 sk-text">拉黑名单</text>
+            <icon class="iconfont icon-jinruyou sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+          </view>
+        </view>
+        <button class="action-item contact-btn border-top sk-button sk-pseudo sk-pseudo-circle" open-type="contact" session-from="weapp" style="border: none;">
+          <view class="item-content">
+            <text class="item-title sk-transparent sk-text-30-4348-724 sk-text" style="background-position-x: 50%;">联系作者</text>
+            <icon class="iconfont icon-jinruyou sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+          </view>
+        </button>
+      </view>
+      <view style="padding-bottom:88px"></view>
+      <view class="copyright sk-transparent sk-text-34-6939-158 sk-text" style="background-position-x: 50%;">@ 2020 shankun.top</view>
+    </view>
+  </view>
+</template>

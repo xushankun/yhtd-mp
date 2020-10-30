@@ -1,0 +1,53 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/10/30 上午10:47:47 
+使用方法：
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\aip\aip.wxml 引入模板
+
+```
+<import src="aip.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 D:\studyspace\github\yhtd-mp\miniprogram\pages\aip\aip.wxss 中引入样式
+```
+@import "./aip.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="release">
+      <view class="back-page" style="top:30px">
+        <icon class="iconfont icon-fanhui sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+      </view>
+      <view class="top-panel" style="height:77px">
+        <view class="select-box" style="top:30px">
+          <view range="[{&quot;name&quot;:&quot;通用物体识别&quot;,&quot;type&quot;:&quot;advancedGeneral&quot;},{&quot;name&quot;:&quot;动物识别&quot;,&quot;type&quot;:&quot;animalDetect&quot;},{&quot;name&quot;:&quot;植物识别&quot;,&quot;type&quot;:&quot;plantDetect&quot;},{&quot;name&quot;:&quot;车辆识别&quot;,&quot;type&quot;:&quot;carDetect&quot;},{&quot;name&quot;:&quot;logo商标识别&quot;,&quot;type&quot;:&quot;logoSearch&quot;}]"
+            range-key="name" value="0" class="sk-image">
+            <view class="picker sk-transparent">
+              通用物体识别
+              <icon class="iconfont icon-jiantouarrow483 sk-image sk-pseudo sk-pseudo-circle" color="#EFEFEF"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="form-block">
+        <view class="upload-block mt10">
+          <view class="upload-title sk-transparent">上传图片
+            <view class="upload-tips sk-transparent sk-text-14-2857-119 sk-text">（长按图片删除）</view>
+          </view>
+          <view class="upload-list">
+            <view class="upload-btn justify-align-center">
+              <image class="plus-icon sk-image" mode="aspectFill"></image>
+            </view>
+          </view>
+          <view class="result-list"></view>
+        </view>
+        <button class="main-submit-btn submit-info sk-transparent sk-button sk-pseudo sk-pseudo-circle" hover-class="hover-btn">
+          开始识别
+        </button>
+      </view>
+    </view>
+  </view>
+</template>
