@@ -1,5 +1,5 @@
 <!--miniprogram/pages/aip/aip.wxml-->
-<view class="release" wx:if="{{isRelease}}">
+<view class="release">
   <view class="back-page" style='top:{{2 * statusBarH + 16}}rpx' catchtap='backPage'>
     <icon class="iconfont icon-fanhui"></icon>
   </view>

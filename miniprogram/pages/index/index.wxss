@@ -280,3 +280,12 @@ page {
 .loading-block text:nth-child(5) {
     -webkit-animation-delay: 0.8s;
 }
+
+
+
+
+.ai-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
