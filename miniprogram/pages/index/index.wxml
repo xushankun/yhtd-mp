@@ -9,9 +9,8 @@
                 placeholder="输入关键词" wx:if="{{false}}" />
         </view>
     </view>
-    <block wx:if="{{isRelease}}">
-        <!-- 列表 -->
-        <view class="list-block w100" wx:if="{{!isRefreshStatus}}">
+    <!-- 列表 -->
+    <view class="list-block w100" wx:if="{{!isRefreshStatus}}">
             <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="index">
                 <image class='userImg mr10' src='{{item.avatarUrl}}'></image>
                 <view class="item-right">
@@ -81,13 +80,4 @@
         <view class="back-top" catchtap="backTop">
             <icon class="iconfont icon-icon_refresh"></icon>
         </view>
-    </block>
-    <block wx:else>
-        <view class="ai-img">
-            <image class="banner" style="margin:20rpx auto" src='../../images/common/main-bg.jpg' mode="aspectFill"></image>
-            <navigator url="../aip/aip" hover-class="other-navigator-hover">
-                <button type="primary">点我图片识别</button>
-            </navigator>
-        </view>       
-    </block>
 </view>
