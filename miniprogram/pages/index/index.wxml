@@ -11,73 +11,78 @@
     </view>
     <!-- 列表 -->
     <view class="list-block w100" wx:if="{{!isRefreshStatus}}">
-            <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="index">
-                <image class='userImg mr10' src='{{item.avatarUrl}}'></image>
-                <view class="item-right">
-                    <view class="username">{{item.nickName || '路人甲'}}</view>
-                    <view class='item-text'>
-                        <displayPartText lineNumber="2" textLineHeight="44" showBtnText="全文" hideBtnText="收起">
-                            {{item.content}}</displayPartText>
+        <view class='item-block border-bottom bgff' wx:for="{{listData}}" wx:key="index">
+            <image class='userImg mr10' src='{{item.avatarUrl}}'></image>
+            <view class="item-right">
+                <view class="username">{{item.nickName || '路人甲'}}</view>
+                <view class='item-text'>
+                    <displayPartText lineNumber="2" textLineHeight="44" showBtnText="全文" hideBtnText="收起">
+                        {{item.content}}</displayPartText>
+                </view>
+                <view class='img-block' wx:if="{{isRelease}}">
+                    <image wx:if="{{item.image.length === 1 ? true : false}}" class='img1' lazy-load="{{true}}"
+                        mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index"
+                        wx:key="index" data-index="{{index}}" data-curr-url="{{_item}}" src='{{_item || ""}}'
+                        catchtap="previewImage"></image>
+                    <image wx:if="{{item.image.length !== 1 ? true : false}}" class='img' lazy-load="{{true}}"
+                        mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index"
+                        wx:key="index" data-index="{{index}}" data-curr-url="{{_item}}" src='{{_item || ""}}'
+                        catchtap="previewImage"></image>
+                </view>
+                <view class="item-footer">
+                    <view class="item-time plr30" wx:if="{{item.newTime === '刚刚' ? true : false}}">{{item.newTime}}
                     </view>
-                    <view class='img-block' wx:if="{{isRelease}}">
-                        <image wx:if="{{item.image.length === 1 ? true : false}}" class='img1' lazy-load="{{true}}"
-                            mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index"
-                            wx:key="index" data-index="{{index}}" data-curr-url="{{_item}}" src='{{_item || ""}}'
-                            catchtap="previewImage"></image>
-                        <image wx:if="{{item.image.length !== 1 ? true : false}}" class='img' lazy-load="{{true}}"
-                            mode="aspectFill" wx:for="{{item.image}}" wx:for-item='_item' wx:for-index="_index"
-                            wx:key="index" data-index="{{index}}" data-curr-url="{{_item}}" src='{{_item || ""}}'
-                            catchtap="previewImage"></image>
-                    </view>
-                    <view class="item-footer">
-                        <view class="item-time plr30" wx:if="{{item.newTime === '刚刚' ? true : false}}">{{item.newTime}}
-                        </view>
-                        <view class="item-time plr30" wx:else>{{item.newTime}}前</view>
-                        <block wx:if="{{isRelease}}">
-                            <icon class="iconfont icon-gengduo more-icon" data-imgid="{{item.image}}"
-                                data-id="{{item._id}}" data-openid="{{item._openid}}" catchtap="actionBtn"
-                                wx:if="{{openid === item._openid || auth === 1}}"></icon>
-                        </block>
+                    <view class="item-time plr30" wx:else>{{item.newTime}}前</view>
+                    <block wx:if="{{isRelease}}">
+                        <icon class="iconfont icon-gengduo more-icon" data-imgid="{{item.image}}" data-id="{{item._id}}"
+                            data-openid="{{item._openid}}" catchtap="actionBtn"
+                            wx:if="{{openid === item._openid || auth === 1}}"></icon>
+                    </block>
 
-                    </view>
                 </view>
             </view>
-            <!-- 加载更多 -->
-            <view wx:if="{{listData.length ? true : false}}">
-                <view class="loading" hidden="{{!searchLoading}}">疯狂加载中...</view>
-                <view class="loading complete" hidden="{{!searchLoadingComplete}}">--没有更多数据--</view>
-            </view>
-            <view class='empty-list' wx:if="{{listData.length ? false : true}}">
-                当前一条数据都没有哦!
-            </view>
-
         </view>
-        <!-- loading -->
-        <view class="loading-block" wx:else>
-            <text></text>
-            <text></text>
-            <text></text>
-            <text></text>
-            <text></text>
+        <!-- 加载更多 -->
+        <view wx:if="{{listData.length ? true : false}}">
+            <view class="loading" hidden="{{!searchLoading}}">疯狂加载中...</view>
+            <view class="loading complete" hidden="{{!searchLoadingComplete}}">--没有更多数据--</view>
+        </view>
+        <view class='empty-list' wx:if="{{listData.length ? false : true}}">
+            当前一条数据都没有哦!
         </view>
 
-        <navigator url="../composeImg/composeImg" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
-            <view class="release-btn" style='bottom:370rpx;'>
-                <icon class="iconfont icon-pintu"></icon>
+    </view>
+    <!-- loading -->
+    <view class="loading-block" wx:else>
+        <text></text>
+        <text></text>
+        <text></text>
+        <text></text>
+        <text></text>
+    </view>
+
+    <view class='action-block'>
+        <view class="action-cont">
+            <navigator url="../composeImg/composeImg" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
+                <view class="release-btn" style='bottom:370rpx;'>
+                    <icon class="iconfont icon-pintu"></icon>
+                </view>
+            </navigator>
+            <navigator url="../aip/aip" hover-class="other-navigator-hover" wx:if="{{isAI && isRelease}}">
+                <view class="release-btn" style='bottom:266rpx;'>
+                    <icon class="iconfont icon-txsb"></icon>
+                </view>
+            </navigator>
+            <navigator url="release/release" hover-class="other-navigator-hover" wx:if="{{releaseBtn && isRelease}}">
+                <view class="release-btn">
+                    <icon class="iconfont icon-fabuxinxi"></icon>
+                </view>
+            </navigator>
+            <!-- 刷新并返回顶部 -->
+            <view class="release-btn" catchtap="backTop">
+                <icon class="iconfont icon-icon_refresh"></icon>
             </view>
-        </navigator>
-        <navigator url="../aip/aip" hover-class="other-navigator-hover" wx:if="{{isAI && isRelease}}">
-            <view class="release-btn" style='bottom:266rpx;'>
-                <icon class="iconfont icon-txsb"></icon>
-            </view>
-        </navigator>
-        <navigator url="release/release" hover-class="other-navigator-hover" wx:if="{{isRelease}}">
-            <view class="release-btn">
-                <icon class="iconfont icon-fabuxinxi"></icon>
-            </view>
-        </navigator>
-        <!-- 刷新并返回顶部 -->
-        <view class="back-top" catchtap="backTop">
-            <icon class="iconfont icon-icon_refresh"></icon>
         </view>
+
+    </view>
 </view>

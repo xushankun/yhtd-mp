@@ -16,6 +16,7 @@ Page({
         searchLoadingComplete: false,
 
         isAI: false,
+        releaseBtn: false,
         isRelease: false,
         isRefreshStatus: true,
         // 权限默认普通用户0，管理员1 ，拉黑用户为2
@@ -149,11 +150,13 @@ Page({
             if (res.data.length) {
                 this.setData({
                     isAI: res.data[0].isAI,
+                    releaseBtn: res.data[0].releaseBtn,
                     isRelease: res.data[0].isRelease
                 })
             } else {
                 this.setData({
                     isAI: false,
+                    releaseBtn: false,
                     isRelease: false
                 })
             }
