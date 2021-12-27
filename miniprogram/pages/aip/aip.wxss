@@ -2,64 +2,63 @@
 /* miniprogram/pages/index/release/release.wxss */
 
 page {
-    background: #f1f5f9;
+  background: #f1f5f9;
 }
 
 .submit-info {
-    /* background: #2282e5; */
-    background:rgba(0, 180, 170,1);
-    color: #fff;
-    position: fixed;
-    width: calc(100% - 60rpx);
-    bottom: 100rpx;
-    left: 30rpx;
+  background: rgba(0, 180, 170, 1);
+  color: #fff;
+  position: fixed;
+  width: calc(100% - 60rpx);
+  bottom: 100rpx;
+  left: 30rpx;
 }
 
 .upload-block {
-    padding: 0 28rpx;
+  padding: 0 28rpx;
 }
 
 .upload-block .upload-title {
-    padding: 35rpx 0;
-    display: flex;
-    align-items: baseline;
-    color: #404040;
-    font-size: 32rpx;
+  padding: 35rpx 0;
+  display: flex;
+  align-items: baseline;
+  color: #404040;
+  font-size: 32rpx;
 }
 
 .upload-tips {
-    font-size: 24rpx;
-    margin-left: 4rpx;
+  font-size: 24rpx;
+  margin-left: 4rpx;
 }
 
 .upload-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .upload-list .upload-img {
-    width: 120rpx;
-    height: 120rpx;
-    margin: 20rpx 20rpx 20rpx 0;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 20rpx 20rpx 20rpx 0;
 }
 
 .upload-list .upload-btn {
-    width: 120rpx;
-    height: 120rpx;
-    margin: 20rpx 20rpx 20rpx 0;
-    background: #ebebeb;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 20rpx 20rpx 20rpx 0;
+  background: #ebebeb;
 }
 
 .upload-list .upload-btn .plus-icon {
-    width: 40rpx;
-    height: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .justify-align-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-hover {
@@ -73,12 +72,14 @@ page {
   margin-top: 20px;
   position: relative
 }
-.result-list .item-block{
+
+.result-list .item-block {
   min-height: 50px;
   display: flex;
   justify-content: space-between;
   position: relative
 }
+
 .upload-img-bg {
   position: absolute;
   top: 0;
@@ -88,47 +89,52 @@ page {
   z-index: 1
 }
 
-/* 返回按钮 */
-.back-page {
-    position: absolute;
-    left: 30rpx;
-    /* top: 80rpx; */
-    /* top:13vw; */
-    z-index: 100;
-}
-
-.back-page .iconfont {
-    font-size: 50rpx;
-    color: #fff;
-}
 .top-panel {
-   background: #00b4aa;
-   height: 180rpx;
-   position: relative;
-    z-index: 10;
-}
-.top-panel.active {
-  background: rgba(0,0,0,.5)
-}
-.form-block.active {
-    background: rgba(0,0,0,.5);
+  background: #00b4aa;
   position: relative;
   z-index: 10;
-  color:#fff;
 }
+
+.top-panel.active {
+  background: rgba(0, 0, 0, .5)
+}
+
+.form-block.active {
+  background: rgba(0, 0, 0, .5);
+  position: relative;
+  z-index: 10;
+  color: #fff;
+}
+
 .form-block.active .upload-title {
   color: #fff
 }
+
 .select-box {
-   position: relative;
-   height: 50rpx;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #fff
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff
 }
+
+.picker-wrap {
+  width: 100%;
+  height: 100%;
+}
+.select-box .picker {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
 .select-box .iconfont {
-  height: 38rpx;
   font-size: inherit;
-  margin-left: 4rpx
+  margin-left: 8rpx;
+  position: relative;
+  top: -7rpx;
 }

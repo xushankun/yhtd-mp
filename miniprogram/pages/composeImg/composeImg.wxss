@@ -11,6 +11,7 @@
   z-index: 300;
   color: #666;
   font-size: 24rpx;
+  padding-bottom: 24rpx;
 }
 
 .scrollView{
@@ -40,9 +41,6 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-}
-.imgList>view.active{
-  /* border: 4rpx solid red */
 }
 .imgList image{
   display: block;
@@ -111,7 +109,9 @@
 .divLiButton {
   width: calc(100% - 80rpx);
   margin-left: 40rpx;
-  padding-bottom: 30rpx
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .divLiButton button {
   margin-top: 20rpx

@@ -1,6 +1,6 @@
 <!--miniprogram/pages/mine/defriendList/defriendList.wxml-->
 <view class="list-block" wx:if="{{listData.length !== 0}}">
-    <view class="item-block plr30 border-bottom" wx:for="{{listData}}" wx:key="{{index}}">
+    <view class="item-block plr30 border-bottom" wx:for="{{listData}}" wx:key="index">
         <view class="user-block">
             <image class='userImg mr10' src='{{item.avatarUrl}}'></image>
             <view class="nickname">{{item.nickName}}</view>

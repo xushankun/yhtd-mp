@@ -5,7 +5,7 @@
 <template is="loadSmall" data="{{isLoadSmallStatus}}"></template>
 <view catchtouchmove="true" class="container">
   <block wx:if="{{!photoSrc}}">
-    <button class="impowerBtn" bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取头像</button>
+    <button class="impowerBtn" bindtap="getUserProfile">获取头像</button>
   </block>
   <block wx:else>
     <view class="photoframe" style="height:{{frameHeight}}px" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd">

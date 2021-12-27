@@ -1,11 +1,8 @@
 <!--miniprogram/pages/aip/aip.wxml-->
 <view class="release">
-  <view class="back-page" style='top:{{2 * statusBarH + 16}}rpx' catchtap='backPage'>
-    <icon class="iconfont icon-fanhui"></icon>
-  </view>
-  <view class="top-panel {{imgList.length ? 'active':''}}" style='height:{{2 * statusBarH + 100}}rpx'>
-    <view class="select-box" style='top:{{2 * statusBarH + 16}}rpx'>
-      <picker bindchange="bindPickerChange" value="{{typeIndex}}" range="{{objectArray}}" range-key="name">
+  <view class="top-panel {{imgList.length ? 'active':''}}">
+    <view class="select-box">
+      <picker class="picker-wrap" bindchange="bindPickerChange" value="{{typeIndex}}" range="{{objectArray}}" range-key="name">
         <view class="picker">
           {{objectArray[typeIndex].name}} <icon class="iconfont icon-jiantouarrow483"></icon>
         </view>

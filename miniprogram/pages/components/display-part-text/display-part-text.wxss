@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.ctrl-show-text view {
+.ctrl-show-text .show-all-cont {
   line-height: inherit;
 }
 

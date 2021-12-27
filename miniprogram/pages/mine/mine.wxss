@@ -81,10 +81,6 @@
 
 /* action */
 
-.action-list {
-    /* padding-bottom: 160rpx; */
-}
-
 .action-list  .action-item {
     width: 100%;
     padding: 0 0 0 30rpx;
@@ -140,4 +136,7 @@
     color: #999;
     position: absolute;
     bottom: 0;
+    padding-bottom: 0;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
 }

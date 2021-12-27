@@ -38,7 +38,7 @@ Page({
         let _isLogin = wx.getStorageSync('isLogin');
         let _userInfo = wx.getStorageSync('userInfo');
         if (_isLogin) {
-            this.onQueryUser(_userInfo._openid);
+            this.onQueryUser(_userInfo._id);
             wx.showShareMenu({
                 withShareTicket: true
             })
@@ -90,10 +90,8 @@ Page({
                 skip: _skip
             }
         }).then(res => {
-            console.log(res)
             if (res && res.result) {
                 let _res = res.result.data
-                console.log('[数据库] [查询记录] 成功: ', _res)
                 if (_res.length) {
                     _res.map(item => {
                         if (item.createTime) {
@@ -171,10 +169,10 @@ Page({
             urls: _urls
         })
     },
-    onQueryUser(openid) {
+    onQueryUser(_id) {
         let _that = this;
         db.collection('users').where({
-            _openid: openid
+            _id: _id
         }).limit(1).get().then(res => {
             if (res.data.length > 0) {
                 wx.setStorageSync('userInfo', res.data[0]);

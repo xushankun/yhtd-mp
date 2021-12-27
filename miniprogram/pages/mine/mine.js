@@ -129,5 +129,19 @@ Page({
         wx.navigateBack({
             delta: 1
         })
+    },
+    goWebView(){
+      let _url = encodeURIComponent('https://shankun.top')
+      let path = '/pages/webView/webView?url=' + _url
+      if (_url) {
+        wx.navigateTo({
+          url: path,
+          complete() {
+            wx.vibrateShort()
+          }
+        })
+      } else {
+        console.log('未发现可跳转url')
+      }
     }
 })

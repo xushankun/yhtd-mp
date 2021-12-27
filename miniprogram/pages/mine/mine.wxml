@@ -49,14 +49,8 @@
                 <icon class="iconfont icon-jinruyou"></icon>
             </view>
         </button>
-        <!-- <view class="action-item border-top" catchtap="connectAuther">
-            <view class="item-content">
-                <text class="item-title"> 联系作者</text>
-                <icon class="iconfont icon-jinruyou"></icon>
-            </view>
-        </view> -->
     </view>
     <!-- copyright -->
     <view style='padding-bottom:160rpx'></view>
-    <view class="copyright">@ {{currYear}} shankun.top</view>
+    <view class="copyright">@ {{currYear}} <text catchtap="goWebView" style="text-decoration:underline">shankun.top</text></view>
 </view>

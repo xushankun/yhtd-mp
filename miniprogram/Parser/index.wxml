@@ -20,7 +20,7 @@
 <template is='rich-text-floor1' data='{{nodes,space}}' />
 <!--各层级-->
 <template name='rich-text-floor1'>
-  <block wx:for='{{nodes}}' wx:key>
+  <block wx:for='{{nodes}}' wx:key="index">
     <template wx:if="{{!item.continue||item.name=='table'}}" is='rich-text' data='{{item,space}}' />
     <template wx:elif="{{item.name=='img'}}" is='img' data='{{item}}' />
     <template wx:elif="{{item.name=='video'}}" is='video' data='{{item}}' />

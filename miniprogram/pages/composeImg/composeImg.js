@@ -24,28 +24,19 @@ Page({
   onLoad: function (e) {
     const that = this;
     that.getRahMenType();
-    that.getUserInfo();
   },
   // 获取头像
-  getUserInfo: function (e) {
-    const that = this;
-    if (e && e.detail.userInfo) {  
-      console.log(e.detail.userInfo.avatarUrl.split("/132")[0] + '/0')
-      that.getUpdateImageInFo(e.detail.userInfo.avatarUrl.split("/132")[0] + '/0');
-    } else {
-      wx.getSetting({
-        success(res) {
-          if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-            wx.getUserInfo({
-              success: function (res) {
-                that.getUpdateImageInFo(res.userInfo.avatarUrl.split("/132")[0] + '/0');
-              }
-            })
-          }
-        }
-      })
-    }
+  getUserProfile() {
+    let that = this
+    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+    // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+    wx.getUserProfile({
+      desc: '用于合成图片', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log(res)
+        that.getUpdateImageInFo(res.userInfo.avatarUrl.split("/132")[0] + '/0');
+      }
+    })
   },
 
   /**
